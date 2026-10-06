@@ -5,7 +5,8 @@ const {
   writeFileSync,
   readdirSync,
 } = require("node:fs");
-const { join } = require("node:path");
+const { join, sep } = require("node:path");
+const { createHash } = require("node:crypto");
 
 const BUILD_DIR = "dist";
 const OUT_DIR = "dist_injected";
@@ -28,6 +29,7 @@ cpSync(BUILD_DIR, OUT_DIR, { recursive: true });
 
 console.log("Injecting environment variables...");
 const files = readdirSync(OUT_DIR, { recursive: true });
+const revisions = {};
 
 for (const file of files) {
   const path = join(OUT_DIR, file);
@@ -51,7 +53,23 @@ for (const file of files) {
   if (modified) {
     console.log("Injected:", path);
     writeFileSync(path, data);
+    revisions[file.split(sep).join("/")] = createHash("md5")
+      .update(data)
+      .digest("hex");
   }
 }
+
+// The service worker precaches hashed assets with revision null, i.e. "never
+// changes". Injection changes their content under the same name, so give each
+// injected file a real revision or installed clients keep the stale bundle.
+const swPath = join(OUT_DIR, "serviceWorker.js");
+let sw = readFileSync(swPath, "utf-8");
+for (const [url, revision] of Object.entries(revisions)) {
+  sw = sw.replace(
+    new RegExp(`"revision":(?:null|"[^"]*"),"url":"${url.replaceAll(".", "\\.")}"`),
+    `"revision":"${revision}","url":"${url}"`,
+  );
+}
+writeFileSync(swPath, sw);
 
 console.log("Injection complete.");
