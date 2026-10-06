@@ -1,4 +1,3 @@
-import { BiRegularCheckCircle, BiSolidCheckCircle } from "solid-icons/bi";
 import {
   Accessor,
   JSX,
@@ -10,16 +9,16 @@ import {
 } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
-import type { Channel, Server, ServerFlags } from "stoat.js";
+import type { Channel, Server, ServerFlags } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useDevice } from "@revolt/common";
-import { KeybindAction, createKeybind } from "@revolt/keybinds";
-import { TextWithEmoji } from "@revolt/markdown";
-import { useModals } from "@revolt/modal";
-import { useNavigate } from "@revolt/routing";
-import { useVoice } from "@revolt/rtc";
-import { useState } from "@revolt/state";
+import { useDevice } from "@sonm/common";
+import { KeybindAction, createKeybind } from "@sonm/keybinds";
+import { TextWithEmoji } from "@sonm/markdown";
+import { useModals } from "@sonm/modal";
+import { useNavigate } from "@sonm/routing";
+import { useVoice } from "@sonm/rtc";
+import { useState } from "@sonm/state";
 import {
   Column,
   Draggable,
@@ -32,14 +31,14 @@ import {
   iconSize,
   symbolSize,
   typography,
-} from "@revolt/ui";
-import { UnreadCallout } from "@revolt/ui/components/features/navigation/UnreadCallout";
-import { VoiceChannelPreview } from "@revolt/ui/components/features/voice/VoiceChannelPreview";
-import { createDragHandle } from "@revolt/ui/components/utils/Draggable";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { UnreadCallout } from "@sonm/ui/components/features/navigation/UnreadCallout";
+import { VoiceChannelPreview } from "@sonm/ui/components/features/voice/VoiceChannelPreview";
+import { createDragHandle } from "@sonm/ui/components/utils/Draggable";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import MdChevronRight from "@material-design-icons/svg/filled/chevron_right.svg?component-solid";
-import MdSettings from "@material-symbols/svg-400/outlined/settings-fill.svg?component-solid";
+import MdSettings from "@material-design-icons/svg/filled/settings.svg?component-solid";
 
 import { SidebarBase } from "./common";
 import {
@@ -332,7 +331,7 @@ function ServerInfo(
         <IconButton
           size="xs"
           width="narrow"
-          variant={props.server.banner ? "_header" : "standard"}
+          variant={props.server.banner ? "header" : "standard"}
           onPress={props.openServerSettings}
         >
           <MdSettings {...symbolSize(24)} />
@@ -369,9 +368,11 @@ function ServerBadge(props: { flags: ServerFlags }) {
         placement="top"
       >
         {props.flags === 1 ? (
-          <BiSolidCheckCircle size={12} />
+          <Symbol size={12} fill>
+            check_circle
+          </Symbol>
         ) : (
-          <BiRegularCheckCircle size={12} />
+          <Symbol size={12}>check_circle</Symbol>
         )}
       </Tooltip>
     </Show>

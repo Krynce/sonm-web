@@ -2,12 +2,12 @@ import { For, Match, Switch } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { useQuery, useQueryClient } from "@tanstack/solid-query";
-import { Channel, Server, ServerInvite } from "stoat.js";
+import { Channel, Server, ServerInvite } from "sonm.js";
 import { css } from "styled-system/css";
 
-import { useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
-import { getInviteLink } from "@revolt/modal/modals/CreateInvite";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
+import { getInviteLink } from "@sonm/modal/modals/CreateInvite";
 import {
   Avatar,
   Button,
@@ -17,7 +17,7 @@ import {
   Row,
   Symbol,
   Text,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 /**
  * List and invalidate server invites
@@ -34,8 +34,7 @@ export function ListServerInvites(props: { server: Server }) {
 
   const defaultChannel = () =>
     (props.server.defaultChannel || props.server.channels[0]) as
-      | Channel
-      | undefined;
+      Channel | undefined;
 
   async function deleteInvite(invite: ServerInvite) {
     try {
@@ -130,7 +129,7 @@ export function ListServerInvites(props: { server: Server }) {
                     <DataTable.Cell width="40px">
                       <Button
                         size="icon"
-                        variant="_error"
+                        variant="error"
                         use:floating={{
                           tooltip: {
                             placement: "bottom",

@@ -1,10 +1,10 @@
 import { Trans } from "@lingui/solid/macro";
 import { Show } from "solid-js";
-import type { Channel } from "stoat.js";
+import type { Channel } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { useState } from "@revolt/state";
-import type { UnsentMessage } from "@revolt/state/stores/Draft";
+import { useClient } from "@sonm/client";
+import { useState } from "@sonm/state";
+import type { UnsentMessage } from "@sonm/state/stores/Draft";
 
 import MdClose from "@material-design-icons/svg/outlined/close.svg?component-solid";
 import MdContentCopy from "@material-design-icons/svg/outlined/content_copy.svg?component-solid";

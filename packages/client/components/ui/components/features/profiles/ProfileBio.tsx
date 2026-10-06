@@ -2,7 +2,7 @@ import { Show } from "solid-js";
 
 import { styled } from "styled-system/jsx";
 
-import { Markdown } from "@revolt/markdown";
+import { Markdown } from "@sonm/markdown";
 
 import { Ripple, Text, typography } from "../../design";
 
@@ -44,7 +44,7 @@ export function ProfileBio(props: Props) {
 
 const Bio = styled("span", {
   base: {
-    ...typography.raw({ class: "_messages" }),
+    ...typography.raw({ class: "messages" }),
     userSelect: "text",
   },
 });

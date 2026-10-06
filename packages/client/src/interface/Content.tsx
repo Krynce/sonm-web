@@ -1,6 +1,6 @@
 import { Component, Match, Switch } from "solid-js";
 
-import { useParams } from "@revolt/routing";
+import { useParams } from "@sonm/routing";
 
 import { HomePage } from "./Home";
 import { ServerHome } from "./ServerHome";

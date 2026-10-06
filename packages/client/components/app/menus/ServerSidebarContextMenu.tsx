@@ -1,9 +1,9 @@
 import { Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 
-import { useModals } from "@revolt/modal";
+import { useModals } from "@sonm/modal";
 
 import MdLibraryAdd from "@material-design-icons/svg/outlined/library_add.svg?component-solid";
 

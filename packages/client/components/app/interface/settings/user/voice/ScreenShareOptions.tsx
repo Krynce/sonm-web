@@ -1,16 +1,16 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { useVoice } from "@revolt/rtc";
-import { useState } from "@revolt/state";
-import { ScreenShareQualityName } from "@revolt/state/stores/Voice";
+import { useVoice } from "@sonm/rtc";
+import { useState } from "@sonm/state";
+import { ScreenShareQualityName } from "@sonm/state/stores/Voice";
 import {
   CategoryButton,
   CategorySelectOption,
   Checkbox,
   Column,
   Text,
-} from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 export function ScreenShareOptions() {
   const { voice } = useState();

@@ -12,16 +12,16 @@ import {
   User,
   UserModeratedSystemMessage,
   UserSystemMessage,
-} from "stoat.js";
+} from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useTime } from "@revolt/i18n";
-import { useInstance } from "@revolt/instance";
-import { time } from "@revolt/markdown/elements";
-import { RenderAnchor } from "@revolt/markdown/plugins/anchors";
-import { UserMention } from "@revolt/markdown/plugins/mentions";
-import { useSmartParams } from "@revolt/routing";
-import { formatTime, Time } from "@revolt/ui/components/utils";
+import { useTime } from "@sonm/i18n";
+import { useInstance } from "@sonm/instance";
+import { time } from "@sonm/markdown/elements";
+import { RenderAnchor } from "@sonm/markdown/plugins/anchors";
+import { UserMention } from "@sonm/markdown/plugins/mentions";
+import { useSmartParams } from "@sonm/routing";
+import { formatTime, Time } from "@sonm/ui/components/utils";
 
 interface Props {
   /**

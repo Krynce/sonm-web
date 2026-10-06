@@ -1,11 +1,11 @@
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { IFormControl } from "solid-forms";
 
-import { Bot } from "stoat.js";
+import { Bot } from "sonm.js";
 
-import { createProfileResource } from "@revolt/client/resources";
-import { useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
+import { createProfileResource } from "@sonm/client/resources";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
 import {
   CategoryButton,
   Column,
@@ -13,7 +13,7 @@ import {
   iconSize,
   Symbol,
   useSnackbar,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import MdContentCopy from "@material-design-icons/svg/outlined/content_copy.svg?component-solid";
 import MdDelete from "@material-design-icons/svg/outlined/delete.svg?component-solid";
@@ -22,7 +22,6 @@ import MdLink from "@material-design-icons/svg/outlined/link.svg?component-solid
 import MdPersonAdd from "@material-design-icons/svg/outlined/person_add.svg?component-solid";
 import MdToken from "@material-design-icons/svg/outlined/token.svg?component-solid";
 
-import { Discoverable } from "../../shared/Discoverable";
 import { UserSummary } from "../account/index";
 import { UserProfileEditor } from "../profile/UserProfileEditor";
 
@@ -163,8 +162,6 @@ export function ViewBot(props: { bot: Bot }) {
           <Trans>Delete Bot</Trans>
         </CategoryButton>
       </CategoryButton.Group>
-
-      <Discoverable discoverable={props.bot} />
     </Column>
   );
 }

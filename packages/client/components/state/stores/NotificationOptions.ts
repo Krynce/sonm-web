@@ -1,6 +1,6 @@
 import { Accessor, createMemo } from "solid-js";
 
-import { Channel, Server } from "stoat.js";
+import { Channel, Server } from "sonm.js";
 
 import { AbstractStore } from ".";
 import { State } from "..";

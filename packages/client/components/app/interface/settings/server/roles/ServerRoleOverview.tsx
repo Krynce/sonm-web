@@ -2,10 +2,10 @@ import { onCleanup, onMount, Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useModals } from "@revolt/modal";
+import { useModals } from "@sonm/modal";
 import {
   Avatar,
   CategoryButton,
@@ -14,9 +14,9 @@ import {
   Fab,
   Row,
   Text,
-} from "@revolt/ui";
-import { createDragHandle } from "@revolt/ui/components/utils/Draggable";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { createDragHandle } from "@sonm/ui/components/utils/Draggable";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import MdDragIndicator from "@material-design-icons/svg/outlined/drag_indicator.svg?component-solid";
 

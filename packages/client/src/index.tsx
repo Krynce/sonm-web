@@ -1,57 +1,51 @@
 /**
  * Configure contexts and render App
  */
-import "./sentry";
 
 import { JSX, onMount } from "solid-js";
 import { render } from "solid-js/web";
 
-import { attachDevtoolsOverlay } from "@solid-devtools/overlay";
 import { Navigate, Route, Router, useParams } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 import "material-symbols";
 import "mdui/mdui.css";
-import { PublicBot, PublicChannelInvite } from "stoat.js";
+import { PublicBot, PublicChannelInvite } from "sonm.js";
 
-import FlowCheck from "@revolt/auth/src/flows/FlowCheck";
-import FlowConfirmReset from "@revolt/auth/src/flows/FlowConfirmReset";
-import FlowCreate from "@revolt/auth/src/flows/FlowCreate";
-import FlowDeleteAccount from "@revolt/auth/src/flows/FlowDelete";
-import FlowLogin from "@revolt/auth/src/flows/FlowLogin";
-import FlowResend from "@revolt/auth/src/flows/FlowResend";
-import FlowReset from "@revolt/auth/src/flows/FlowReset";
-import FlowVerify from "@revolt/auth/src/flows/FlowVerify";
-import { ClientContext, SoundContext, useClient } from "@revolt/client";
-import { DeviceContext } from "@revolt/common";
-import { I18nProvider } from "@revolt/i18n";
-import { InstanceContext } from "@revolt/instance";
-import { KeybindContext } from "@revolt/keybinds";
-import { ModalContext, ModalRenderer, useModals } from "@revolt/modal";
-import { VoiceContext } from "@revolt/rtc";
-import { StateContext, SyncWorker, useState } from "@revolt/state";
+import FlowCheck from "@sonm/auth/src/flows/FlowCheck";
+import FlowConfirmReset from "@sonm/auth/src/flows/FlowConfirmReset";
+import FlowCreate from "@sonm/auth/src/flows/FlowCreate";
+import FlowDeleteAccount from "@sonm/auth/src/flows/FlowDelete";
+import FlowLogin from "@sonm/auth/src/flows/FlowLogin";
+import FlowResend from "@sonm/auth/src/flows/FlowResend";
+import FlowReset from "@sonm/auth/src/flows/FlowReset";
+import FlowVerify from "@sonm/auth/src/flows/FlowVerify";
+import { ClientContext, SoundContext, useClient } from "@sonm/client";
+import { DeviceContext } from "@sonm/common";
+import { I18nProvider } from "@sonm/i18n";
+import { InstanceContext } from "@sonm/instance";
+import { KeybindContext } from "@sonm/keybinds";
+import { ModalContext, ModalRenderer, useModals } from "@sonm/modal";
+import { VoiceContext } from "@sonm/rtc";
+import { StateContext, SyncWorker, useState } from "@sonm/state";
 import {
   FloatingManager,
   LoadTheme,
   SnackbarController,
   SnackbarProvider,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 /* @refresh reload */
-import "@revolt/ui/styles";
+import "@sonm/ui/styles";
 
-import { AndroidNag } from "./AndroidNag";
 import AuthPage from "./Auth";
 import Interface from "./Interface";
 import "./index.css";
 import { DevelopmentPage } from "./interface/Development";
-import { Discover } from "./interface/Discover";
 import { Friends } from "./interface/Friends";
 import { HomePage } from "./interface/Home";
 import { ServerHome } from "./interface/ServerHome";
 import { ChannelPage } from "./interface/channels/ChannelPage";
 import "./serviceWorkerInterface";
-
-attachDevtoolsOverlay();
 
 /**
  * Redirect PWA start to the last active path
@@ -82,7 +76,7 @@ function InviteRedirect() {
   onMount(() => {
     if (params.code) {
       client()
-        // TODO: add a helper to stoat.js for this
+        // TODO: add a helper to sonm.js for this
         .api.get(`/invites/${params.code as ""}`)
         .then((invite) => PublicChannelInvite.from(client(), invite))
         .then((invite) => openModal({ type: "invite", invite }))
@@ -104,7 +98,7 @@ function BotRedirect() {
   onMount(() => {
     if (params.code) {
       client()
-        // TODO: add a helper to stoat.js for this
+        // TODO: add a helper to sonm.js for this
         .api.get(`/bots/${params.code as ""}/invite`)
         .then((invite) => new PublicBot(client(), invite))
         .then((invite) => openModal({ type: "add_bot", invite }))
@@ -130,7 +124,6 @@ function MountContext(props: { children?: JSX.Element }) {
                   {props.children}
                   <ModalRenderer />
                   <FloatingManager />
-                  <AndroidNag />
                 </QueryClientProvider>
               </VoiceContext>
             </SoundContext>
@@ -159,7 +152,6 @@ const routes = () => (
     <Route path="/" component={Interface as never}>
       <Route path="/pwa" component={PWARedirect} />
       <Route path="/dev" component={DevelopmentPage} />
-      <Route path="/discover/*" component={Discover} />
       <Route path="/settings" component={SettingsRedirect} />
       <Route path="/invite/:code" component={InviteRedirect} />
       <Route path="/bot/:code" component={BotRedirect} />
@@ -182,9 +174,6 @@ render(
       <I18nProvider>
         <SnackbarProvider controller={snackbarCtrl}>
           <Router>
-            <Route path="/i/:host" component={InstanceContext}>
-              {routes()}
-            </Route>
             <Route path="/" component={InstanceContext}>
               {routes()}
             </Route>

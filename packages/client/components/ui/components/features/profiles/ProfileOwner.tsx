@@ -2,8 +2,8 @@ import { Show } from "solid-js";
 
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
 
 import { Avatar, Ripple, Text } from "../../design";
 

@@ -12,26 +12,26 @@ import {
 import { Trans } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { Titlebar } from "@revolt/app/interface/desktop/Titlebar";
+import { Titlebar } from "@sonm/app/interface/desktop/Titlebar";
 import {
   ContextMenu,
   ContextMenuButton,
   ContextMenuDivider,
-} from "@revolt/app/menus/ContextMenu";
-import { useClientLifecycle } from "@revolt/client";
-import { State } from "@revolt/client/Controller";
-import { A, useLocation } from "@revolt/routing";
-import { useState } from "@revolt/state";
-import { IconButton, iconSize } from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/app/menus/ContextMenu";
+import { useClientLifecycle } from "@sonm/client";
+import { State } from "@sonm/client/Controller";
+import { CONFIGURATION } from "@sonm/common";
+import { useInstance } from "@sonm/instance";
+import { A, useLocation } from "@sonm/routing";
+import { useState } from "@sonm/state";
+import { IconButton, iconSize } from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import MdDarkMode from "@material-design-icons/svg/filled/dark_mode.svg?component-solid";
 
 import Wordmark from "../../../public/assets/web/wordmark.svg?component-solid";
-import { AppUpsell } from "./AppUpsell";
 import { BubbleMood, BubbleProvider, FlowBase, FlowBubble } from "./flows/Flow";
 
-import Bluesky from "./flows/bluesky.svg?component-solid";
 import GitHub from "./flows/github.svg?component-solid";
 
 const Root = styled("div", {
@@ -315,6 +315,7 @@ const SUCCESS_FLASH_MS = 1400;
  */
 export function AuthPage(props: { children: JSX.Element }) {
   const state = useState();
+  const legal = useInstance().config.features.legal_links;
   const location = useLocation();
   const { lifecycle } = useClientLifecycle();
   const isCreate = () => location.pathname.includes("/login/create");
@@ -522,7 +523,6 @@ export function AuthPage(props: { children: JSX.Element }) {
           <Brand aria-hidden="true">
             <Wordmark />
           </Brand>
-          <AppUpsell />
         </Hero>
 
         <Content>
@@ -538,7 +538,7 @@ export function AuthPage(props: { children: JSX.Element }) {
                   fallback={
                     <>
                       <span>
-                        <Trans>New to Stoat?</Trans>
+                        <Trans>New to Sonm?</Trans>
                       </span>
                       <A href="/login/create">
                         <Trans>Create account</Trans>
@@ -629,30 +629,29 @@ export function AuthPage(props: { children: JSX.Element }) {
 
           <Footer>
             <nav aria-label="Legal">
-              <a href="https://stoat.chat/terms" target="_blank">
-                <Trans>Terms</Trans>
-              </a>
-              <a href="https://stoat.chat/privacy" target="_blank">
-                <Trans>Privacy</Trans>
-              </a>
-              <a href="https://support.stoat.chat/" target="_blank">
-                <Trans>Help</Trans>
-              </a>
+              <Show when={legal.terms_of_service}>
+                <a href={legal.terms_of_service} target="_blank">
+                  <Trans>Terms</Trans>
+                </a>
+              </Show>
+              <Show when={legal.privacy_policy}>
+                <a href={legal.privacy_policy} target="_blank">
+                  <Trans>Privacy</Trans>
+                </a>
+              </Show>
+              <Show when={CONFIGURATION.SUPPORT_URL}>
+                <a href={CONFIGURATION.SUPPORT_URL} target="_blank">
+                  <Trans>Help</Trans>
+                </a>
+              </Show>
             </nav>
             <Socials aria-label="Social links">
               <a
-                href="https://github.com/stoatchat"
+                href={CONFIGURATION.SOURCE_URL}
                 target="_blank"
-                aria-label="GitHub"
+                aria-label="Source code"
               >
                 <GitHub width={20} height={20} />
-              </a>
-              <a
-                href="https://bsky.app/profile/stoat.chat"
-                target="_blank"
-                aria-label="Bluesky"
-              >
-                <Bluesky width={20} height={20} />
               </a>
             </Socials>
           </Footer>

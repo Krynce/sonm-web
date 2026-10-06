@@ -14,11 +14,11 @@ import Panzoom, { PanzoomObject } from "@panzoom/panzoom";
 import { css, cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { Column, Dialog, DialogProps, IconButton, Text } from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { Column, Dialog, DialogProps, IconButton, Text } from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
-import { MessageContextMenu } from "@revolt/app";
-import { isGifBox } from "@revolt/common/lib/gifs";
+import { MessageContextMenu } from "@sonm/app";
+import { isGifBox } from "@sonm/common/lib/gifs";
 import { Modals } from "../types";
 
 export function ImageViewerModal(

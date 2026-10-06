@@ -1,12 +1,12 @@
 import { Trans } from "@lingui/solid/macro";
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
-import { useSmartParams } from "@revolt/routing";
-import { useState } from "@revolt/state";
-import { Slider, Symbol, Text } from "@revolt/ui";
 import { useNavigate } from "@solidjs/router";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
+import { useSmartParams } from "@sonm/routing";
+import { useState } from "@sonm/state";
+import { Slider, Symbol, Text } from "@sonm/ui";
 import { type JSX, Match, Show, Switch } from "solid-js";
-import type { Channel, Message, ServerMember, User } from "stoat.js";
+import type { Channel, Message, ServerMember, User } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
 import {
@@ -202,16 +202,6 @@ export function UserContextMenu(props: {
    */
   function unblockUser() {
     props.user.unblockUser();
-  }
-
-  /**
-   * Open user in Stoat Admin Panel
-   */
-  function openAdminPanel() {
-    window.open(
-      `https://admin.stoatinternal.com/panel/inspect/user/${props.user.id}`,
-      "_blank",
-    );
   }
 
   /**
@@ -723,25 +713,8 @@ export function UserContextMenu(props: {
       </Show>
 
       {/* Developer tools */}
-      <Show
-        when={
-          state.settings.getValue("advanced:admin_panel") ||
-          state.settings.getValue("advanced:copy_id")
-        }
-      >
+      <Show when={state.settings.getValue("advanced:copy_id")}>
         <ContextMenuDivider />
-      </Show>
-      <Show when={state.settings.getValue("advanced:admin_panel")}>
-        <ContextMenuButton
-          symbol={
-            <IconSlot>
-              <Symbol size={16}>admin_panel_settings</Symbol>
-            </IconSlot>
-          }
-          onClick={openAdminPanel}
-        >
-          <Trans>Admin Panel</Trans>
-        </ContextMenuButton>
       </Show>
       <Show when={state.settings.getValue("advanced:copy_id")}>
         <ContextMenuButton

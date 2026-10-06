@@ -11,7 +11,6 @@ import { TypeLinkSafety } from "./LinkSafety";
 import { TypeLocale } from "./Locale";
 import { TypeNotificationOptions } from "./NotificationOptions";
 import { TypeOrdering } from "./Ordering";
-import { TypeReleaseNotes } from "./ReleaseNotes";
 import { TypeServerFolders } from "./ServerFolders";
 import { TypeSettings } from "./Settings";
 import { TypeSounds } from "./Sounds";
@@ -29,7 +28,6 @@ export type Store = {
   locale: TypeLocale;
   notifications: TypeNotificationOptions;
   ordering: TypeOrdering;
-  "release-notes": TypeReleaseNotes;
   "server-folders": TypeServerFolders;
   settings: TypeSettings;
   sounds: TypeSounds;

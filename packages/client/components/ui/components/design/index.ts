@@ -60,7 +60,6 @@ export {
 } from "./Snackbar";
 export { Switch } from "./Switch";
 export { Text, typography } from "./Text";
-export { TextEditor } from "./TextEditor";
 export { TextField } from "./TextField";
 export { Unreads } from "./Unreads";
 export { UserStatus } from "./UserStatus";

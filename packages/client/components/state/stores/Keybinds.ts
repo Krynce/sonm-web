@@ -4,7 +4,7 @@
 //   KeybindAction,
 //   KeybindActions,
 //   KeybindSequence,
-// } from "@revolt/keybinds";
+// } from "@sonm/keybinds";
 import { State } from "..";
 
 import { AbstractStore } from ".";

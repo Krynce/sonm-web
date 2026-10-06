@@ -2,9 +2,9 @@ import { Trans } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
 import { createFormControl, createFormGroup } from "solid-forms";
 
-import { Avatar, Column, Dialog, DialogProps, Form2, Text } from "@revolt/ui";
+import { Avatar, Column, Dialog, DialogProps, Form2, Text } from "@sonm/ui";
 
-import { useDurationFormat } from "@revolt/i18n/durations";
+import { useDurationFormat } from "@sonm/i18n/durations";
 import { css } from "styled-system/css";
 import { useModals } from "..";
 import { Modals } from "../types";

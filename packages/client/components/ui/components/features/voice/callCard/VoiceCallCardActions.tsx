@@ -4,11 +4,11 @@ import { Show } from "solid-js";
 import { useLingui } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { useInstance } from "@revolt/instance";
-import { useVoice } from "@revolt/rtc";
-import { useState } from "@revolt/state";
-import { Button, IconButton } from "@revolt/ui/components/design";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { useInstance } from "@sonm/instance";
+import { useVoice } from "@sonm/rtc";
+import { useState } from "@sonm/state";
+import { Button, IconButton } from "@sonm/ui/components/design";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 export function VoiceCallCardActions(props: { size: "xs" | "sm" }) {
   const voice = useVoice();
@@ -142,7 +142,7 @@ export function VoiceCallCardActions(props: { size: "xs" | "sm" }) {
       </IconButton>
       <Button
         size={props.size}
-        variant="_error"
+        variant="error"
         onPress={() => voice.disconnect()}
         use:floating={{
           tooltip: {

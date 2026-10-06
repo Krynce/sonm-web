@@ -104,12 +104,7 @@ export const legacyThemeUnsetShim: (
     },
   } as Record<
     | `status-${
-        | "online"
-        | "idle"
-        | "focus"
-        | "busy"
-        | "streaming"
-        | "invisible"}`
+        "online" | "idle" | "focus" | "busy" | "streaming" | "invisible"}`
     | "success"
     | "warning"
     | "error",

@@ -1,10 +1,10 @@
 import { For, Show, createMemo } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { ServerMember } from "stoat.js";
+import { ServerMember } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useModals } from "@revolt/modal";
+import { useModals } from "@sonm/modal";
 
 import { Ripple, Text, typography } from "../../design";
 import { Row } from "../../layout";

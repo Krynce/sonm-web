@@ -2,7 +2,7 @@ import { createFormControl, createFormGroup } from "solid-forms";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { Column, Dialog, DialogProps, Form2, Row } from "@revolt/ui";
+import { Column, Dialog, DialogProps, Form2, Row } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

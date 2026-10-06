@@ -1,8 +1,8 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { useApi } from "@revolt/client";
-import { A, useNavigate, useParams } from "@revolt/routing";
-import { Button } from "@revolt/ui";
+import { useApi } from "@sonm/client";
+import { A, useNavigate, useParams } from "@sonm/routing";
+import { Button } from "@sonm/ui";
 
 import { FlowTitle } from "./Flow";
 import { Fields, Form } from "./Form";
@@ -25,7 +25,7 @@ export default function FlowConfirmReset() {
 
     await api.patch("/auth/account/reset_password", {
       password,
-      token,
+      token: token!,
       remove_sessions,
     });
 
@@ -35,7 +35,7 @@ export default function FlowConfirmReset() {
   return (
     <>
       <FlowTitle
-        subtitle={<Trans>Choose a new password for your Stoat account.</Trans>}
+        subtitle={<Trans>Choose a new password for your Sonm account.</Trans>}
       >
         <Trans>Reset password</Trans>
       </FlowTitle>

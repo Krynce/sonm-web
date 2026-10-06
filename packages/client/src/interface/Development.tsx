@@ -1,13 +1,13 @@
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { createFormControl, createFormGroup } from "solid-forms";
-import { BiSolidPalette, BiSolidSpeaker } from "solid-icons/bi";
 import { For } from "solid-js";
 
-import { PublicBot, PublicChannelInvite } from "stoat.js";
+import { PublicBot, PublicChannelInvite } from "sonm.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
 import {
   Button,
   CategoryButton,
@@ -20,7 +20,7 @@ import {
   Text,
   TextField,
   iconSize,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import Face from "@material-design-icons/svg/filled/face.svg?component-solid";
 
@@ -226,14 +226,22 @@ export function DevelopmentPage() {
       <div style={{ padding: "1em", width: "400px" }}>
         <Column>
           <CategoryButton
-            icon={<BiSolidPalette size={24} />}
+            icon={
+              <Symbol size={24} fill>
+                palette
+              </Symbol>
+            }
             description="description!"
             onClick={() => void 0}
           >
             I am a button
           </CategoryButton>
           <CategoryButton.Collapse
-            icon={<BiSolidSpeaker size={24} />}
+            icon={
+              <Symbol size={24} fill>
+                speaker
+              </Symbol>
+            }
             description="description!"
             title="Choose output device tbh"
           >

@@ -1,4 +1,4 @@
-import { RE_CUSTOM_EMOJI } from "stoat.js";
+import { RE_CUSTOM_EMOJI } from "sonm.js";
 
 import { MarkdownProps } from "..";
 import { RE_UNICODE_EMOJI } from "./UnicodeEmoji";

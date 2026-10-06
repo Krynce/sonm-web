@@ -2,9 +2,9 @@ import { For, Match, Switch, createMemo, createSignal } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
 import { useQuery, useQueryClient } from "@tanstack/solid-query";
-import { Server, ServerBan } from "stoat.js";
+import { Server, ServerBan } from "sonm.js";
 
-import { useModals } from "@revolt/modal";
+import { useModals } from "@sonm/modal";
 import {
   Avatar,
   Button,
@@ -12,7 +12,7 @@ import {
   DataTable,
   Row,
   TextField,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import MdDelete from "@material-design-icons/svg/outlined/delete.svg?component-solid";
 

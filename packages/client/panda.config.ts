@@ -9,6 +9,9 @@ for (const bp in Breakpoint) {
 }
 
 export default defineConfig({
+  // v2 ships no built-in presets; these were the v1 defaults
+  presets: ["@pandacss/preset-base", "@pandacss/preset-panda"],
+
   // Whether to use css reset
   preflight: true,
 

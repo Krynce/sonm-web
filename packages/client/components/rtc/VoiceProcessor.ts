@@ -2,14 +2,14 @@ import { AudioProcessorOptions, Track, TrackProcessor } from "livekit-client";
 import { RNNoiseNode } from "livekit-rnnoise-processor";
 import { createEffect, createRoot, on } from "solid-js";
 
-import { CONFIGURATION } from "@revolt/common";
-import { Voice } from "@revolt/state/stores/Voice";
+import { CONFIGURATION } from "@sonm/common";
+import { Voice } from "@sonm/state/stores/Voice";
 
 export class VoiceProcessor implements TrackProcessor<
   Track.Kind.Audio,
   AudioProcessorOptions
 > {
-  readonly name = "stoat-voice-processor";
+  readonly name = "sonm-voice-processor";
   processedTrack?: MediaStreamTrack;
 
   private audioContext?: AudioContext;

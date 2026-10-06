@@ -2,17 +2,16 @@ import { Match, Show, Switch, createMemo, splitProps } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { VirtualContainer } from "@minht11/solid-virtual-container";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { ChannelContextMenu, UserContextMenu } from "@revolt/app";
-import { useClient } from "@revolt/client";
-import { useDevice } from "@revolt/common";
-import Instance from "@revolt/instance/Instance";
-import { TextWithEmoji } from "@revolt/markdown";
-import { useModals } from "@revolt/modal";
-import { useLocation, useNavigate } from "@revolt/routing";
+import { ChannelContextMenu, UserContextMenu } from "@sonm/app";
+import { useClient } from "@sonm/client";
+import { useDevice } from "@sonm/common";
+import { TextWithEmoji } from "@sonm/markdown";
+import { useModals } from "@sonm/modal";
+import { useLocation, useNavigate } from "@sonm/routing";
 import {
   Avatar,
   Deferred,
@@ -21,8 +20,8 @@ import {
   Tooltip,
   UserStatus,
   typography,
-} from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { SidebarBase } from "./common";
 
@@ -77,11 +76,7 @@ export const HomeSidebar = (props: Props) => {
             href="/app"
             size="normal"
             icon={<Symbol>home</Symbol>}
-            attention={
-              Instance.relPath(location.pathname) === "/app"
-                ? "selected"
-                : "normal"
-            }
+            attention={location.pathname === "/app" ? "selected" : "normal"}
           >
             <ButtonTitle>
               <Trans>Home</Trans>
@@ -94,11 +89,7 @@ export const HomeSidebar = (props: Props) => {
             href="/friends"
             size="normal"
             icon={<Symbol>group</Symbol>}
-            attention={
-              Instance.relPath(location.pathname) === "/friends"
-                ? "selected"
-                : "normal"
-            }
+            attention={location.pathname === "/friends" ? "selected" : "normal"}
           >
             <ButtonTitle>
               <Trans>Friends</Trans>
@@ -355,7 +346,7 @@ function Entry(
             <OverflowingText>
               <TextWithEmoji content={local.channel.name!} />
             </OverflowingText>
-            <span class={typography({ class: "_status" })}>
+            <span class={typography({ class: "status" })}>
               {/* <Plural
                   value={local.channel.recipientIds.size}
                   one="# Member"
@@ -375,7 +366,7 @@ function Entry(
                 placement="top-start"
                 aria={status()!}
               >
-                <OverflowingText class={typography({ class: "_status" })}>
+                <OverflowingText class={typography({ class: "status" })}>
                   <TextWithEmoji content={status()!} />
                 </OverflowingText>
               </Tooltip>

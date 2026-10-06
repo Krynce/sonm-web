@@ -1,0 +1,23 @@
+{
+  "name": "sonm-api",
+  "version": "0.1.0",
+  "description": "Typed request builder and types for the Sonm API",
+  "type": "module",
+  "private": true,
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "json-with-bigint": "^3.5.12"
+  },
+  "devDependencies": {
+    "openapi-typescript": "^7.13.0",
+    "typescript": "^6.0.3"
+  }
+}

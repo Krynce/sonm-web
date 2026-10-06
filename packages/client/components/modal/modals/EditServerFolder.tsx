@@ -3,8 +3,8 @@ import { createSignal } from "solid-js";
 import { Trans } from "@lingui/solid/macro";
 
 import { t } from "@lingui/core/macro";
-import { useState } from "@revolt/state";
-import { ColourPicker, Column, Dialog, DialogProps, Form2 } from "@revolt/ui";
+import { useState } from "@sonm/state";
+import { ColourPicker, Column, Dialog, DialogProps, Form2 } from "@sonm/ui";
 import { createFormControl, createFormGroup } from "solid-forms";
 import { useModals } from "..";
 import { Modals } from "../types";

@@ -1,9 +1,11 @@
 import { createFormControl, createFormGroup } from "solid-forms";
+import { Show } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { useNavigate } from "@revolt/routing";
-import { Column, Dialog, DialogProps, Form2, Text } from "@revolt/ui";
+import { useInstance } from "@sonm/instance";
+import { useNavigate } from "@sonm/routing";
+import { Column, Dialog, DialogProps, Form2, Text } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";
@@ -15,6 +17,7 @@ export function CreateServerModal(
   props: DialogProps & Modals & { type: "create_server" },
 ) {
   const { t } = useLingui();
+  const guidelines = useInstance().config.features.legal_links.guidelines;
   const navigate = useNavigate();
   const { showError } = useModals();
 
@@ -57,15 +60,17 @@ export function CreateServerModal(
     >
       <form onSubmit={submit}>
         <Column>
-          <Text>
-            <Trans>
-              By creating this server, you agree to the{" "}
-              <a href="https://stoat.chat/aup" target="_blank" rel="noreferrer">
-                <Trans>Acceptable Use Policy</Trans>
-              </a>
-              .
-            </Trans>
-          </Text>
+          <Show when={guidelines}>
+            <Text>
+              <Trans>
+                By creating this server, you agree to the{" "}
+                <a href={guidelines} target="_blank" rel="noreferrer">
+                  <Trans>Acceptable Use Policy</Trans>
+                </a>
+                .
+              </Trans>
+            </Text>
+          </Show>
           <Form2.TextField
             minlength={1}
             maxlength={32}

@@ -4,9 +4,9 @@ import { Trans } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
 import { styled } from "styled-system/jsx";
 
-import { useInstance } from "@revolt/instance";
-import Instance from "@revolt/instance/Instance";
-import { Dialog, DialogProps } from "@revolt/ui";
+import { useInstance } from "@sonm/instance";
+import Instance from "@sonm/instance/Instance";
+import { Dialog, DialogProps } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";
@@ -31,7 +31,7 @@ const Invite = styled("div", {
 
 /** Get absolute link from invite id */
 export const getInviteLink = (id: string, inst: Instance) =>
-  inst.isStoat ? `https://stt.gg/${id}` : inst.href(`/invite/${id}`);
+  inst.href(`/invite/${id}`);
 
 /**
  * Modal to create a new invite

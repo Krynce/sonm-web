@@ -1,105 +1,64 @@
-<div align="center">
-<h1>
-  Stoat Frontend
-  
-  [![Stars](https://img.shields.io/github/stars/stoatchat/for-web?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-web/stargazers)
-  [![Forks](https://img.shields.io/github/forks/stoatchat/for-web?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-web/network/members)
-  [![Pull Requests](https://img.shields.io/github/issues-pr/stoatchat/for-web?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-web/pulls)
-  [![Issues](https://img.shields.io/github/issues/stoatchat/for-web?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-web/issues)
-  [![Contributors](https://img.shields.io/github/contributors/stoatchat/for-web?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-web/graphs/contributors)
-  [![License](https://img.shields.io/github/license/stoatchat/for-web?style=flat-square&logoColor=white)](https://github.com/stoatchat/for-web/blob/main/LICENSE)
-</h1>
-The official web client powering https://stoat.chat/app, built with <a href="https://www.solidjs.com/">Solid.js</a> 💖. <br/>
-Track the project roadmap on <a href="https://op.stoatinternal.com/projects/revolt-for-web/roadmap">OpenProject</a>.
-</div>
-<br/>
+# Sonm Web
 
-## Development Guide
+Web client for Sonm. Solid.js + Vite, forked from Stoat for Web (AGPL-3.0).
 
-Before contributing, make yourself familiar with [our contribution guidelines](https://developers.stoat.chat/developing/contrib/), the [code style guidelines](./GUIDELINES.md), and the [technical documentation for this project](https://stoatchat.github.io/for-web/).
+## Packages
 
-Before getting started, you'll want to install:
+| Package | What |
+|---|---|
+| `packages/client` | The web app |
+| `packages/sonm.js` | Reactive client SDK (forked from stoat.js, MIT) |
+| `packages/sonm-api` | API types and request builder, generated from the backend's OpenAPI (MIT) |
+| `packages/solid-livekit-components` | LiveKit bindings for voice/video (MIT) |
 
-- [Git](https://git-scm.com/install/)
-- [mise-en-place](https://mise.jdx.dev/getting-started.html)
+## Development
 
-Then proceed to setup:
+Needs Node 24+ and pnpm 11 (`mise install` sets both up), plus a running `sonm-backend`.
 
-```bash
-# clone the repository
-git clone --recursive https://github.com/stoatchat/for-web client
-cd client
-
-# update submodules if you pull new changes
-# git submodule init && git submodule update
-
-# install all packages
-mise install:frozen
-
-# build deps:
-mise build:deps
-
-# or build a specific dep (e.g. stoat.js updates):
-# pnpm --filter stoat.js run build
-
-# customise the .env
-cp packages/client/.env.example packages/client/.env
-
-# run dev server
-mise dev
-
-# run all CI checks locally
-mise check
+```sh
+pnpm install
+mise build:deps       # builds sonm-api, sonm.js, livekit components, i18n catalogs
+mise dev              # vite dev server
+mise build && mise start   # production build + preview
 ```
 
-Finally, navigate to http://local.revolt.chat:5173.
+Without mise:
 
-### Using the official backend
-
-By default, the client connects to a backend running on the same host (localhost).
-
-If you want the client to connect to the official hosted backend instead, open the .env file at /packages/client/.env and comment out the local URL varaibles like this:
-
-```env
-# connect to local Stoat instance
-#VITE_API_URL=http://localhost:14702
+```sh
+pnpm --filter sonm-api build
+pnpm --filter sonm.js build
+pnpm --filter solid-livekit-components build
+pnpm --filter client exec lingui compile --typescript
+pnpm --filter client exec vite --host
 ```
 
-When these variables are not set, the client automatically falls back to the official backend. (See https://github.com/stoatchat/for-web/blob/main/packages/client/components/common/lib/env.ts)
+Checks: `mise build:check` (tsc), `mise test:unit`, `mise lint`, `mise format`, `mise lingui:check`.
 
-## Deployment Guide
+## Configuration
 
-### Build the app
+Set in `packages/client/.env` (see `.env.example`) or, for the Docker image, as container env vars:
 
-```bash
-# install packages
-mise install:frozen
+| Variable | Default | |
+|---|---|---|
+| `VITE_API_URL` | `<origin>/api` | Sonm API base URL |
+| `VITE_SUPPORT_URL` | none | Help link on login / loading screens |
+| `VITE_SOURCE_URL` | this repo | "Source code" link (AGPL) |
+| `VITE_EMOJI_URL` | upstream CDN | Unicode emoji packs |
 
-# build dependencies
-mise build:deps
+Everything else (files, embeds, GIFs, gateway, legal links) comes from the API's `GET /`.
 
-# build for web
-mise build
+## API types
 
-# ... when building for Stoat production
-mise build:prod
+After changing the backend API:
+
+```sh
+curl http://localhost:14702/openapi.json > packages/sonm-api/OpenAPI.json
+pnpm --filter sonm-api generate
 ```
 
-You can now deploy the directory `packages/client/dist`.
+## Docker
 
-### Routing Information
-
-The app currently needs the following routes:
-
-- `/login`
-- `/pwa`
-- `/dev`
-- `/discover`
-- `/settings`
-- `/invite`
-- `/bot`
-- `/friends`
-- `/server`
-- `/channel`
-
-This corresponds to [Content.tsx#L33](packages/client/src/index.tsx).
+```sh
+docker build -t sonm-web .
+docker run -p 5000:5000 -e VITE_API_URL=https://sonm.example/api sonm-web
+```

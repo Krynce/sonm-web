@@ -14,12 +14,10 @@ const OUT_DIR = "dist_injected";
 // At build time, Vite replaces import.meta.env.VITE_X with the literal string value.
 // We build with placeholder values like "__VITE_API_URL__" so they appear in the output.
 const REPLACEMENTS = {
-  __VITE_HOST__: process.env.VITE_HOST,
   __VITE_API_URL__: process.env.VITE_API_URL,
-  __VITE_WS_URL__: process.env.VITE_DEV_WS_URL,
-  __VITE_MEDIA_URL__: process.env.VITE_DEV_MEDIA_URL,
-  __VITE_PROXY_URL__: process.env.VITE_DEV_PROXY_URL,
-  __VITE_GIFBOX_URL__: process.env.VITE_DEV_GIFBOX_URL,
+  __VITE_SUPPORT_URL__: process.env.VITE_SUPPORT_URL,
+  __VITE_SOURCE_URL__: process.env.VITE_SOURCE_URL,
+  __VITE_EMOJI_URL__: process.env.VITE_EMOJI_URL,
   __VITE_RNNOISE_WORKLET_CDN_URL__: process.env.VITE_RNNOISE_WORKLET_CDN_URL,
 };
 

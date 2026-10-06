@@ -9,9 +9,9 @@ import {
   DialogProps,
   humanFileSize,
   ImageCropper,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
-import { isAnimatedWebP } from "@revolt/ui/components/utils/isAnimatedWebp";
+import { isAnimatedWebP } from "@sonm/ui/components/utils/isAnimatedWebp";
 import { Modals } from "../types";
 
 export interface CropProcessOptions {

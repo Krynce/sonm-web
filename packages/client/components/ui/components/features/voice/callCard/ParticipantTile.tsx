@@ -12,14 +12,14 @@ import { Track } from "livekit-client";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { UserContextMenu } from "@revolt/app";
-import { useUser } from "@revolt/markdown/users";
-import { useVoice } from "@revolt/rtc";
-import { useState } from "@revolt/state";
-import { Avatar } from "@revolt/ui/components/design";
-import { Row } from "@revolt/ui/components/layout";
-import { OverflowingText } from "@revolt/ui/components/utils";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { UserContextMenu } from "@sonm/app";
+import { useUser } from "@sonm/markdown/users";
+import { useVoice } from "@sonm/rtc";
+import { useState } from "@sonm/state";
+import { Avatar } from "@sonm/ui/components/design";
+import { Row } from "@sonm/ui/components/layout";
+import { OverflowingText } from "@sonm/ui/components/utils";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { VoiceStatefulUserIcons } from "../VoiceStatefulUserIcons";
 

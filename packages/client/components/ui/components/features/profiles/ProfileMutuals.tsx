@@ -1,11 +1,11 @@
 import { For, Show } from "solid-js";
 
 import { useQuery } from "@tanstack/solid-query";
-import { ServerMember, User } from "stoat.js";
+import { ServerMember, User } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
 
 import { Avatar, Ripple, Text } from "../../design";
 

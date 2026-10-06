@@ -2,10 +2,10 @@ import { Match, Show, Switch, createSignal, onMount } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { useApi, useClientLifecycle } from "@revolt/client";
-import { useModals } from "@revolt/modal";
-import { A, useNavigate, useParams } from "@revolt/routing";
-import { Button } from "@revolt/ui";
+import { useApi, useClientLifecycle } from "@sonm/client";
+import { useModals } from "@sonm/modal";
+import { A, useNavigate, useParams } from "@sonm/routing";
+import { Button } from "@sonm/ui";
 
 import { FlowTitle, useFlowBubble } from "./Flow";
 

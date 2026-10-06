@@ -1,16 +1,15 @@
 import { lingui as linguiSolidPlugin } from "@lingui/vite-plugin";
-import devtools from "@solid-devtools/transform";
 import { readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
+// compiles Lingui macros in plain .ts files (vite-plugin-solid only handles .tsx)
 import babelMacrosPlugin from "vite-plugin-babel-macros";
-import Inspect from "vite-plugin-inspect";
 import { VitePWA } from "vite-plugin-pwa";
 import solidPlugin from "vite-plugin-solid";
 import solidSvg from "vite-plugin-solid-svg";
 
-import codegenPlugin from "./codegen.plugin";
-import { addFontPreload } from "./fontpreload.plugin";
+import codegenPlugin from "./codegen.plugin.ts";
+import { addFontPreload } from "./fontpreload.plugin.ts";
 
 const base = process.env.BASE_PATH ?? "/";
 const pwaScope = process.env.PWA_SCOPE || base;
@@ -18,8 +17,6 @@ const pwaScope = process.env.PWA_SCOPE || base;
 export default defineConfig({
   base,
   plugins: [
-    Inspect(),
-    devtools(),
     codegenPlugin(),
     babelMacrosPlugin(),
     solidPlugin({
@@ -46,9 +43,9 @@ export default defineConfig({
         type: "module",
       },
       manifest: {
-        name: "Stoat",
-        short_name: "Stoat",
-        description: "User-first open source chat platform.",
+        name: "Sonm",
+        short_name: "Sonm",
+        description: "Open source chat platform.",
         categories: ["communication", "chat", "messaging"],
         start_url: base,
         scope: pwaScope,
@@ -88,21 +85,6 @@ export default defineConfig({
     target: "esnext",
     rollupOptions: {
       external: ["hast"],
-      output: {
-        manualChunks: {
-          markdown: [
-            "lowlight",
-            "rehype-highlight",
-            "rehype-katex",
-            "remark-breaks",
-            "remark-gfm",
-            "remark-math",
-            "remark-parse",
-            "remark-rehype",
-            "vfile",
-          ],
-        },
-      },
     },
     sourcemap: true,
   },
@@ -111,11 +93,11 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "styled-system": resolve(__dirname, "styled-system"),
-      ...readdirSync(resolve(__dirname, "components")).reduce(
+      "styled-system": resolve(import.meta.dirname, "styled-system"),
+      ...readdirSync(resolve(import.meta.dirname, "components")).reduce(
         (p, f) => ({
           ...p,
-          [`@revolt/${f}`]: resolve(__dirname, "components", f),
+          [`@sonm/${f}`]: resolve(import.meta.dirname, "components", f),
         }),
         {},
       ),

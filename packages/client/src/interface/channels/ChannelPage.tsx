@@ -1,10 +1,10 @@
 import { Component, Match, Switch, createMemo } from "solid-js";
 
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { Navigate, useParams } from "@revolt/routing";
+import { useClient } from "@sonm/client";
+import { Navigate, useParams } from "@sonm/routing";
 
 import { AgeGate } from "./AgeGate";
 import { TextChannel } from "./text/TextChannel";
@@ -39,7 +39,7 @@ const TEXT_CHANNEL_TYPES: Channel["type"][] = [
 export const ChannelPage: Component = () => {
   const params = useParams();
   const client = useClient();
-  const channel = createMemo(() => client()!.channels.get(params.channel)!);
+  const channel = createMemo(() => client()!.channels.get(params.channel!)!);
 
   return (
     <Base>

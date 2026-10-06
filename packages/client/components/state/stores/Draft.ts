@@ -1,10 +1,10 @@
 import { Accessor, Setter, batch, createSignal } from "solid-js";
 
-import { API, Channel, Client, Message } from "stoat.js";
+import { API, Channel, Client, Message } from "sonm.js";
 import { ulid } from "ulid";
 
-import { insecureUniqueId } from "@revolt/common";
-import { useInstance } from "@revolt/instance";
+import { insecureUniqueId } from "@sonm/common";
+import { useInstance } from "@sonm/instance";
 
 import { AbstractStore } from ".";
 import { State } from "..";

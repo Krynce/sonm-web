@@ -36,7 +36,7 @@ export function IconButton(props: Props) {
     "shape",
     "width",
     "variant",
-    "_compositionSendMessage",
+    "compositionSendMessage",
   ]);
   let ref: HTMLButtonElement | undefined;
 
@@ -112,7 +112,7 @@ const iconButton2 = cva({
         "--colour": "var(--md-sys-color-on-surface-variant)",
       },
 
-      _header: {
+      header: {
         "--colour": "white",
       },
     },
@@ -153,7 +153,7 @@ const iconButton2 = cva({
       },
       false: {},
     },
-    _compositionSendMessage: {
+    compositionSendMessage: {
       true: {
         width: "48px",
         aspectRatio: "unset",
@@ -168,7 +168,7 @@ const iconButton2 = cva({
     shape: "round",
     size: "sm",
     disabled: false,
-    _compositionSendMessage: false,
+    compositionSendMessage: false,
   },
   compoundVariants: [
     // disabled styles

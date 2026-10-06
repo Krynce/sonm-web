@@ -30,12 +30,7 @@ import { typography } from "./Text";
  * Permissible actions
  */
 type Action =
-  | "chevron"
-  | "collapse"
-  | "external"
-  | "edit"
-  | "copy"
-  | JSX.Element;
+  "chevron" | "collapse" | "external" | "edit" | "copy" | JSX.Element;
 
 export interface Props {
   readonly icon?: JSX.Element | "blank";

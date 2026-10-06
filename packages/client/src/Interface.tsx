@@ -7,20 +7,20 @@ import {
   Switch,
 } from "solid-js";
 
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { ChannelContextMenu, ServerContextMenu } from "@revolt/app";
-import { MessageCache } from "@revolt/app/interface/channels/text/MessageCache";
-import { Titlebar } from "@revolt/app/interface/desktop/Titlebar";
-import { useClient, useClientLifecycle } from "@revolt/client";
-import { State } from "@revolt/client/Controller";
-import { NotificationsWorker } from "@revolt/client/NotificationsWorker";
-import { useModals } from "@revolt/modal";
-import { Navigate, useBeforeLeave, useLocation } from "@revolt/routing";
-import { useState } from "@revolt/state";
-import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
-import { LoadingScreen } from "@revolt/ui";
+import { ChannelContextMenu, ServerContextMenu } from "@sonm/app";
+import { MessageCache } from "@sonm/app/interface/channels/text/MessageCache";
+import { Titlebar } from "@sonm/app/interface/desktop/Titlebar";
+import { useClient, useClientLifecycle } from "@sonm/client";
+import { State } from "@sonm/client/Controller";
+import { NotificationsWorker } from "@sonm/client/NotificationsWorker";
+import { useModals } from "@sonm/modal";
+import { Navigate, useBeforeLeave, useLocation } from "@sonm/routing";
+import { useState } from "@sonm/state";
+import { LAYOUT_SECTIONS } from "@sonm/state/stores/Layout";
+import { LoadingScreen } from "@sonm/ui";
 
 import { SlideDrawer } from "../components/ui/components/navigation/SlideDrawer";
 import { Sidebar } from "./interface/Sidebar";

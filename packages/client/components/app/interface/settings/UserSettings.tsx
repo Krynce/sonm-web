@@ -1,31 +1,27 @@
 import { Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 import { css } from "styled-system/css";
 
-import { useClient, useClientLifecycle } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import { useUser } from "@revolt/markdown/users";
-import { useModals } from "@revolt/modal";
-import { fetchLatestChangelog } from "@revolt/modal/modals/Changelog";
-import { ColouredText, Column, Text, iconSize } from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { useClient, useClientLifecycle } from "@sonm/client";
+import { CONFIGURATION } from "@sonm/common";
+import { useInstance } from "@sonm/instance";
+import { useUser } from "@sonm/markdown/users";
+import { useModals } from "@sonm/modal";
+import { ColouredText, Column, Text, iconSize } from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import MdAccountCircle from "@material-design-icons/svg/outlined/account_circle.svg?component-solid";
-import MdCampaign from "@material-design-icons/svg/outlined/campaign.svg?component-solid";
-import MdCoffee from "@material-design-icons/svg/outlined/coffee.svg?component-solid";
 import MdLanguage from "@material-design-icons/svg/outlined/language.svg?component-solid";
 import MdLogout from "@material-design-icons/svg/outlined/logout.svg?component-solid";
 import MdMemory from "@material-design-icons/svg/outlined/memory.svg?component-solid";
 import MdMic from "@material-design-icons/svg/outlined/mic.svg?component-solid";
 import MdNotifications from "@material-design-icons/svg/outlined/notifications.svg?component-solid";
 import MdPalette from "@material-design-icons/svg/outlined/palette.svg?component-solid";
-import MdRateReview from "@material-design-icons/svg/outlined/rate_review.svg?component-solid";
 import MdScience from "@material-design-icons/svg/outlined/science.svg?component-solid";
 import MdSmartToy from "@material-design-icons/svg/outlined/smart_toy.svg?component-solid";
 import MdVerifiedUser from "@material-design-icons/svg/outlined/verified_user.svg?component-solid";
-import MdWorkspacePremium from "@material-design-icons/svg/outlined/workspace_premium.svg?component-solid";
 
 import pkg from "../../../../../../package.json";
 
@@ -35,13 +31,11 @@ import { MyAccount } from "./user/Account";
 import AdvancedSettings from "./user/Advanced";
 import { AppearanceMenu } from "./user/appearance";
 import { MyBots, ViewBot } from "./user/bots";
-import { Feedback } from "./user/Feedback";
 import { LanguageSettings } from "./user/Language";
 import Native from "./user/Native";
 import Notifications from "./user/notifications/Notifications";
 import { EditProfile } from "./user/profile";
 import { Sessions } from "./user/Sessions";
-import { EditSubscription } from "./user/subscriptions";
 import { VoiceSettings } from "./user/voice/VoiceSettings";
 
 const Config: SettingsConfiguration<{ server: Server }> = {
@@ -90,10 +84,6 @@ const Config: SettingsConfiguration<{ server: Server }> = {
         return <MyBots />;
       case "language":
         return <LanguageSettings />;
-      case "feedback":
-        return <Feedback />;
-      case "subscribe":
-        return <EditSubscription />;
       case "native":
         return <Native />;
       case "voice":
@@ -112,7 +102,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
    * @returns List
    */
   list(_, onClose) {
-    const { pop, openModal } = useModals();
+    const { pop } = useModals();
     const { logout } = useClientLifecycle();
     const { limits, config } = useInstance();
 
@@ -135,7 +125,7 @@ const Config: SettingsConfiguration<{ server: Server }> = {
           </Text>
           <Show when={window.native}>
             <Text class="label">
-              Stoat for Desktop {window.native.versions.desktop()}
+              Sonm Desktop {window.native.versions.desktop()}
             </Text>
             <Text class="label">
               <span
@@ -220,31 +210,10 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               icon: <MdVerifiedUser {...iconSize(20)} />,
               title: <Trans>Sessions</Trans>,
             },
-          ],
-        },
-        {
-          title: "Stoat",
-          entries: [
             {
               id: "bots",
               icon: <MdSmartToy {...iconSize(20)} />,
               title: <Trans>My Bots</Trans>,
-            },
-            {
-              id: "feedback",
-              icon: <MdRateReview {...iconSize(20)} />,
-              title: <Trans>Feedback</Trans>,
-            },
-          ],
-        },
-        {
-          title: <Trans>Subscriptions</Trans>,
-          hidden: import.meta.env.PROD,
-          entries: [
-            {
-              id: "subscribe",
-              icon: <MdWorkspacePremium {...iconSize(20)} />,
-              title: "[premium]",
             },
           ],
         },
@@ -319,16 +288,8 @@ const Config: SettingsConfiguration<{ server: Server }> = {
         {
           entries: [
             {
-              onClick: async () => {
-                const changelog = await fetchLatestChangelog();
-                if (!changelog) return;
-                openModal({ type: "changelog", changelog });
-              },
-              icon: <MdCampaign {...iconSize(20)} />,
-              title: <Trans>What's New</Trans>,
-            },
-            {
-              href: "https://github.com/stoatchat",
+              // AGPL: users must be able to get the source of what they run
+              href: CONFIGURATION.SOURCE_URL,
               icon: <MdMemory {...iconSize(20)} />,
               title: <Trans>Source Code</Trans>,
             },
@@ -336,11 +297,6 @@ const Config: SettingsConfiguration<{ server: Server }> = {
               id: "advanced",
               icon: <MdScience {...iconSize(20)} />,
               title: <Trans>Advanced</Trans>,
-            },
-            {
-              href: "https://ko-fi.com/stoatchat",
-              icon: <MdCoffee {...iconSize(20)} />,
-              title: <Trans>Donate</Trans>,
             },
             {
               id: "logout",

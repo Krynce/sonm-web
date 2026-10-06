@@ -1,7 +1,7 @@
 import { Match, Switch, createSignal, onMount } from "solid-js";
 
-import { useApi } from "@revolt/client";
-import { useParams } from "@revolt/routing";
+import { useApi } from "@sonm/client";
+import { useParams } from "@sonm/routing";
 
 import { FlowTitle } from "./Flow";
 
@@ -16,7 +16,7 @@ export default function FlowDeleteAccount() {
   onMount(() => {
     api
       .put("/auth/account/delete", {
-        token: params.token,
+        token: params.token!,
       })
       .then(() => setDeleted(true))
       .catch(() => setDeleted("error"));

@@ -11,18 +11,17 @@ import {
 import { Portal } from "solid-js/web";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Channel, Server, User } from "stoat.js";
+import { Channel, Server, User } from "sonm.js";
 import { css, cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { ServerFolderContextMenu } from "@revolt/app/menus";
-import { useClient } from "@revolt/client";
-import { useDevice } from "@revolt/common";
-import { useInstance } from "@revolt/instance";
-import { KeybindAction, createKeybind } from "@revolt/keybinds";
-import { useModals } from "@revolt/modal";
-import { useNavigate } from "@revolt/routing";
-import { ResolvedEntry, useState } from "@revolt/state";
+import { ServerFolderContextMenu } from "@sonm/app/menus";
+import { useClient } from "@sonm/client";
+import { useDevice } from "@sonm/common";
+import { KeybindAction, createKeybind } from "@sonm/keybinds";
+import { useModals } from "@sonm/modal";
+import { useNavigate } from "@sonm/routing";
+import { ResolvedEntry, useState } from "@sonm/state";
 import {
   Avatar,
   Column,
@@ -31,9 +30,9 @@ import {
   Time,
   Unreads,
   UserStatus,
-} from "@revolt/ui";
-import { VoiceStatus } from "@revolt/ui/components/design/VoiceStatus";
-import { Tooltip } from "@revolt/ui/components/floating";
+} from "@sonm/ui";
+import { VoiceStatus } from "@sonm/ui/components/design/VoiceStatus";
+import { Tooltip } from "@sonm/ui/components/floating";
 
 import { UserMenu } from "./UserMenu";
 import { RailEntry, createRailDrag } from "./railDrag";
@@ -91,7 +90,6 @@ export const ServerList = (props: Props) => {
   const { isMobile } = useDevice();
   const { openModal } = useModals();
   const { t } = useLingui();
-  const instance = useInstance();
 
   const navigateServer = (byOffset: number) => {
     const serverId = props.selectedServer();
@@ -443,16 +441,6 @@ export const ServerList = (props: Props) => {
             <Avatar size={42} fallback={<Symbol>add</Symbol>} />
           </a>
         </Tooltip>
-        <Show when={instance.isStoat}>
-          <Tooltip placement="right" content={"Find new servers to join"}>
-            <a
-              href={state.layout.getLastActiveDiscoverPath()}
-              class={entryContainer()}
-            >
-              <Avatar size={42} fallback={<Symbol fill>explore</Symbol>} />
-            </a>
-          </Tooltip>
-        </Show>
       </div>
       <Shadow>
         <div />

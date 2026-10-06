@@ -8,13 +8,13 @@ import {
 } from "solid-livekit-components";
 
 import { Track } from "livekit-client";
-import { Channel, VoiceParticipant } from "stoat.js";
+import { Channel, VoiceParticipant } from "sonm.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { UserContextMenu } from "@revolt/app";
-import { useUser } from "@revolt/markdown/users";
-import { InRoom } from "@revolt/rtc";
+import { UserContextMenu } from "@sonm/app";
+import { useUser } from "@sonm/markdown/users";
+import { InRoom } from "@sonm/rtc";
 
 import { Avatar, Ripple, typography } from "../../design";
 import { Row } from "../../layout";

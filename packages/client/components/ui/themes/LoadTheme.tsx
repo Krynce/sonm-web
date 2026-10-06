@@ -1,13 +1,13 @@
 import { createEffect, createMemo } from "solid-js";
 
-import { useClientLifecycle } from "@revolt/client";
-import { State } from "@revolt/client/Controller";
-import { useState } from "@revolt/state";
+import { useClientLifecycle } from "@sonm/client";
+import { State } from "@sonm/client/Controller";
+import { useState } from "@sonm/state";
 
 import {
   createMaterialColourVariables,
   createMduiColourTriplets,
-  createStoatWebVariables,
+  createWebVariables,
 } from ".";
 import { SlideState } from "../components/navigation/SlideDrawer";
 import { Masks } from "./Masks";
@@ -44,8 +44,8 @@ export function LoadTheme() {
         }),
         {},
       ),
-      // mount Stoat for Web variables
-      ...createStoatWebVariables(activeTheme),
+      // mount web client variables
+      ...createWebVariables(activeTheme),
       // mount --md-sys-color variables
       ...createMaterialColourVariables(activeTheme, "--md-sys-color-"),
       // mount --mdui-color triplet variables

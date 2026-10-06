@@ -4,11 +4,11 @@ import { createEffect, createMemo, For, onMount, Show } from "solid-js";
 import { TrackLoop } from "solid-livekit-components";
 import { styled } from "styled-system/jsx";
 
-import { useDevice } from "@revolt/common";
-import { InRoom, useVoice } from "@revolt/rtc";
-import { IconButton } from "@revolt/ui/components/design";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
-import { scrollableStyles } from "@revolt/ui/directives";
+import { useDevice } from "@sonm/common";
+import { InRoom, useVoice } from "@sonm/rtc";
+import { IconButton } from "@sonm/ui/components/design";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
+import { scrollableStyles } from "@sonm/ui/directives";
 
 import { ParticipantTile, tile } from "./ParticipantTile";
 import { VoiceCallCardActions } from "./VoiceCallCardActions";

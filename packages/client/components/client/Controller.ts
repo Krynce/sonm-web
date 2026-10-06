@@ -1,11 +1,11 @@
 import { detect } from "detect-browser";
 import { Accessor, Setter, createMemo, createSignal } from "solid-js";
 
-import { API, Client, ConnectionState, ProtocolV1 } from "stoat.js";
+import { API, Client, ConnectionState, ProtocolV1 } from "sonm.js";
 
-import { ModalControllerExtended } from "@revolt/modal";
-import type { State as ApplicationState } from "@revolt/state";
-import type { Session } from "@revolt/state/stores/Auth";
+import { ModalControllerExtended } from "@sonm/modal";
+import type { State as ApplicationState } from "@sonm/state";
+import type { Session } from "@sonm/state/stores/Auth";
 
 import Instance from "../instance/Instance";
 import { killServiceWorkerSubscription } from "./NotificationsController";
@@ -367,7 +367,7 @@ class Lifecycle {
     switch (state) {
       case ConnectionState.Disconnected:
         if (this.client.events.lastError) {
-          if (this.client.events.lastError.type === "revolt") {
+          if (this.client.events.lastError.type === "server") {
             if (this.client.events.lastError.data.type == "InvalidSession") {
               this.#controller.state.auth.removeSession();
             }
@@ -418,7 +418,7 @@ export default class ClientController {
 
   isLoggedIn: Accessor<boolean>;
 
-  /** Stoat instance the client belongs to. Also accessible via `useInstance()` */
+  /** Instance the client belongs to. Also accessible via `useInstance()` */
   readonly instance: Instance;
 
   /**
@@ -486,9 +486,9 @@ export default class ClientController {
         os = "iPadOS";
       }
 
-      friendly_name = `Stoat for Web (${name} on ${os})`;
+      friendly_name = `Sonm Web (${name} on ${os})`;
     } else {
-      friendly_name = "Stoat for Web (Unknown Device)";
+      friendly_name = "Sonm Web (Unknown Device)";
     }
 
     // Try to login with given credentials

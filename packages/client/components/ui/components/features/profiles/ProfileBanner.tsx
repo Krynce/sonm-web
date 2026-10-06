@@ -1,11 +1,11 @@
 import { Show, createSignal } from "solid-js";
 
-import { ServerMember, User } from "stoat.js";
+import { ServerMember, User } from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
 import { useLingui } from "@lingui/solid/macro";
-import { OverflowingText, Tooltip } from "@revolt/ui";
+import { OverflowingText, Tooltip } from "@sonm/ui";
 import { Avatar, Ripple, UserStatus, typography } from "../../design";
 import { Row } from "../../layout";
 

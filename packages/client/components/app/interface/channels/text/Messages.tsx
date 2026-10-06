@@ -16,25 +16,25 @@ import {
   splitProps,
 } from "solid-js";
 
-import isEqual from "lodash.isequal";
-import { Channel, Message as MessageInterface } from "stoat.js";
+import isEqual from "fast-deep-equal";
+import { Channel, Message as MessageInterface } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient, useClientLifecycle } from "@revolt/client";
-import { State } from "@revolt/client/Controller";
-import { useTime } from "@revolt/i18n";
-import { useState } from "@revolt/state";
+import { useClient, useClientLifecycle } from "@sonm/client";
+import { State } from "@sonm/client/Controller";
+import { useTime } from "@sonm/i18n";
+import { useState } from "@sonm/state";
 import {
   BlockedMessage,
   ConversationStart,
   Deferred,
   JumpToBottom,
   MessageDivider,
-} from "@revolt/ui";
+} from "@sonm/ui";
 import {
   ListView2,
   ListView2Update,
-} from "@revolt/ui/components/utils/ListView2";
+} from "@sonm/ui/components/utils/ListView2";
 
 import { CompositionInfo } from "./CompositionInfo";
 import { Message } from "./Message";

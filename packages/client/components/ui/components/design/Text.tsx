@@ -29,12 +29,12 @@ export const typography = cva({
       body: {},
       label: {},
 
-      _messages: {
+      messages: {
         fontWeight: 400,
         fontSize: "var(--message-size)",
       },
 
-      _status: {
+      status: {
         fontWeight: 400,
         fontSize: "11px",
       },

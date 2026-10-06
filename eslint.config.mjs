@@ -39,6 +39,8 @@ export default defineConfig([
         },
       ],
       "solid/jsx-no-undef": ["off"],
+      // Solid assigns refs through `ref={x}`, which this rule cannot see
+      "no-unassigned-vars": ["off"],
       "prettier/prettier": ["warn"],
     },
   },

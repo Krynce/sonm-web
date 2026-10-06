@@ -4,16 +4,16 @@ import { useLingui } from "@lingui/solid/macro";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useMessage } from "@revolt/app";
-import { useDevice } from "@revolt/common";
-import { Ripple, typography } from "@revolt/ui/components/design";
-import { Column, Row } from "@revolt/ui/components/layout";
+import { useMessage } from "@sonm/app";
+import { useDevice } from "@sonm/common";
+import { Ripple, typography } from "@sonm/ui/components/design";
+import { Column, Row } from "@sonm/ui/components/layout";
 import {
   NonBreakingText,
   OverflowingText,
   Symbol,
   Time,
-} from "@revolt/ui/components/utils";
+} from "@sonm/ui/components/utils";
 
 import { MessageToolbar } from "./MessageToolbar";
 
@@ -263,7 +263,7 @@ const Content = styled("div", {
     gap: "var(--gap-sm)",
     flexDirection: "column",
 
-    ...typography.raw({ class: "_messages" }),
+    ...typography.raw({ class: "messages" }),
   },
 });
 

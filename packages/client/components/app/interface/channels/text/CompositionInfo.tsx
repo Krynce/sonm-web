@@ -3,14 +3,14 @@ import { For, Match, Show, Switch, createMemo, onMount } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { createResizeObserver } from "@solid-primitives/resize-observer";
-import { Channel, User } from "stoat.js";
+import { Channel, User } from "sonm.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useDurationFormat } from "@revolt/i18n/durations";
-import { useUsers } from "@revolt/markdown/users";
-import { Avatar, OverflowingText, Symbol, typography } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { useDurationFormat } from "@sonm/i18n/durations";
+import { useUsers } from "@sonm/markdown/users";
+import { Avatar, OverflowingText, Symbol, typography } from "@sonm/ui";
 
 interface Props {
   channel: Channel;

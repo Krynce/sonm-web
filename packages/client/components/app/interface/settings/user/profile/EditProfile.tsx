@@ -2,10 +2,10 @@ import { For } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { useClient } from "@revolt/client";
-import { createOwnProfileResource } from "@revolt/client/resources";
-import { useModals } from "@revolt/modal";
-import { Avatar, CategoryButton, Column, Text, iconSize } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { createOwnProfileResource } from "@sonm/client/resources";
+import { useModals } from "@sonm/modal";
+import { Avatar, CategoryButton, Column, Text, iconSize } from "@sonm/ui";
 
 import MdGroups from "@material-design-icons/svg/outlined/groups.svg?component-solid";
 

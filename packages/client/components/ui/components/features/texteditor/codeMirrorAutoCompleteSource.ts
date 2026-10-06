@@ -5,20 +5,20 @@ import type {
   CompletionContext,
   CompletionResult,
 } from "@codemirror/autocomplete";
-import { User } from "stoat.js";
+import { User } from "sonm.js";
 
-import { useClient } from "@revolt/client";
+import { useClient } from "@sonm/client";
 import {
   isRegionalIndicator,
   UNICODE_EMOJI_PACK_PUA,
   UNICODE_ZWNJ,
   unicodeEmojiUrl,
-} from "@revolt/markdown/emoji/UnicodeEmoji";
-import { useState } from "@revolt/state";
+} from "@sonm/markdown/emoji/UnicodeEmoji";
+import { useState } from "@sonm/state";
 
 import { AutoCompleteSearchSpace } from "../../utils/autoComplete";
 
-import { EMOJI_KEYS, getEmojiByShorthand } from "@revolt/ui/emojis";
+import { EMOJI_KEYS, getEmojiByShorthand } from "@sonm/ui/emojis";
 import { isInCodeBlock } from "./codeMirrorCommon";
 
 const MAPPED_EMOJI_KEYS = EMOJI_KEYS.values()

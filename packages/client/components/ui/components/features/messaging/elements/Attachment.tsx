@@ -1,13 +1,13 @@
 import { Match, Show, Switch } from "solid-js";
 
-import { File, ImageEmbed, Message, VideoEmbed } from "stoat.js";
+import { File, ImageEmbed, Message, VideoEmbed } from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { MessageContextMenu, useMessage } from "@revolt/app";
-import { useModals } from "@revolt/modal";
-import { Column } from "@revolt/ui/components/layout";
-import { SizedContent, Spoiler } from "@revolt/ui/components/utils";
+import { MessageContextMenu, useMessage } from "@sonm/app";
+import { useModals } from "@sonm/modal";
+import { Column } from "@sonm/ui/components/layout";
+import { SizedContent, Spoiler } from "@sonm/ui/components/utils";
 
 import { FileInfo } from "./FileInfo";
 import { TextFile } from "./TextFile";

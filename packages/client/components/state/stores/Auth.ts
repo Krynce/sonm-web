@@ -1,4 +1,4 @@
-import { CONFIGURATION } from "@revolt/common";
+import { CONFIGURATION } from "@sonm/common";
 
 import { State } from "..";
 

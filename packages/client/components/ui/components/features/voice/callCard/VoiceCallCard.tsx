@@ -13,13 +13,13 @@ import {
 import { Portal } from "solid-js/web";
 
 import { createResizeObserver } from "@solid-primitives/resize-observer";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useVoice } from "@revolt/rtc";
-import { VoiceLayout } from "@revolt/rtc/state";
-import { useState } from "@revolt/state";
-import { SlideState } from "@revolt/ui/components/navigation/SlideDrawer";
+import { useVoice } from "@sonm/rtc";
+import { VoiceLayout } from "@sonm/rtc/state";
+import { useState } from "@sonm/state";
+import { SlideState } from "@sonm/ui/components/navigation/SlideDrawer";
 
 import { VoiceCallCardActiveRoom } from "./VoiceCallCardActiveRoom";
 import { VoiceCallCardPiP } from "./VoiceCallCardPiP";

@@ -1,9 +1,9 @@
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { createFormControl, createFormGroup } from "solid-forms";
 
-import { useState } from "@revolt/state";
-import { ScreenShareQualityName } from "@revolt/state/stores/Voice";
-import { Column, Dialog, DialogProps, Form2 } from "@revolt/ui";
+import { useState } from "@sonm/state";
+import { ScreenShareQualityName } from "@sonm/state/stores/Voice";
+import { Column, Dialog, DialogProps, Form2 } from "@sonm/ui";
 import { VideoTrack } from "solid-livekit-components";
 
 import { Show } from "solid-js";

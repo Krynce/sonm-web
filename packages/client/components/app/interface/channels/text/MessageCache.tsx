@@ -8,10 +8,10 @@ import {
   useContext,
 } from "solid-js";
 
-import { Channel, Client, Message } from "stoat.js";
+import { Channel, Client, Message } from "sonm.js";
 
-import { useClientLifecycle } from "@revolt/client";
-import { State } from "@revolt/client/Controller";
+import { useClientLifecycle } from "@sonm/client";
+import { State } from "@sonm/client/Controller";
 
 type ChannelState = {
   messages: Message[];

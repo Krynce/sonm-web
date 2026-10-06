@@ -1,4 +1,4 @@
-import { useDevice } from "@revolt/common";
+import { useDevice } from "@sonm/common";
 import {
   type Accessor,
   type JSX,

@@ -5,8 +5,8 @@ import type { Handler } from "mdast-util-to-hast";
 import { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-import { dayjs, timeLocale } from "@revolt/i18n/dayjs";
-import { useState } from "@revolt/state";
+import { dayjs, timeLocale } from "@sonm/i18n/dayjs";
+import { useState } from "@sonm/state";
 
 import { time as Time } from "../elements";
 

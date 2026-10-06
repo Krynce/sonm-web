@@ -3,7 +3,7 @@ import { createMemo, createSignal } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { useClient } from "@revolt/client";
+import { useClient } from "@sonm/client";
 import {
   Avatar,
   Column,
@@ -13,7 +13,7 @@ import {
   Row,
   Text,
   TextField,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

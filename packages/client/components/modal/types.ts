@@ -16,17 +16,16 @@ import {
   ServerMember,
   ServerRole,
   Session,
-  File as StoatFile,
+  File as SonmFile,
   User,
   VideoEmbed,
-} from "stoat.js";
+} from "sonm.js";
 
-import type { SettingsConfigurations } from "@revolt/app";
-import { CategoryData } from "@revolt/app/menus/CategoryContextMenu";
-import { ServerFolder } from "@revolt/state/stores/ServerFolders";
-import { ScreenShareQualityName } from "@revolt/state/stores/Voice";
+import type { SettingsConfigurations } from "@sonm/app";
+import { CategoryData } from "@sonm/app/menus/CategoryContextMenu";
+import { ServerFolder } from "@sonm/state/stores/ServerFolders";
+import { ScreenShareQualityName } from "@sonm/state/stores/Voice";
 
-import type { ChangelogResponse } from "./modals/Changelog";
 import { CropProcessOptions } from "./modals/CropProcess";
 
 export type Modals =
@@ -51,10 +50,6 @@ export type Modals =
       type: "ban_non_member";
       user: User;
       server: Server;
-    }
-  | {
-      type: "changelog";
-      changelog: ChangelogResponse;
     }
   | {
       type: "channel_info";
@@ -169,7 +164,7 @@ export type Modals =
       type: "image_viewer";
       embed?: ImageEmbed;
       gif?: VideoEmbed;
-      file?: StoatFile;
+      file?: SonmFile;
     }
   | {
       type: "join_server";

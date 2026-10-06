@@ -3,7 +3,7 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { Trans } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
 
-import { Column, Dialog, DialogProps, Form2, Text } from "@revolt/ui";
+import { Column, Dialog, DialogProps, Form2, Text } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

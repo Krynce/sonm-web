@@ -2,14 +2,14 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { For, Match, Switch } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 import { css } from "styled-system/css";
 
-import { useClient } from "@revolt/client";
-import { useError } from "@revolt/i18n";
-import { useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
-import { cropProcess } from "@revolt/modal/modals/CropProcess";
+import { useClient } from "@sonm/client";
+import { useError } from "@sonm/i18n";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
+import { cropProcess } from "@sonm/modal/modals/CropProcess";
 import {
   Avatar,
   Button,
@@ -20,7 +20,7 @@ import {
   Row,
   Symbol,
   Text,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 /**
  * Emoji list

@@ -1,11 +1,11 @@
 import { Trans } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { Dialog, DialogProps, iconSize } from "@revolt/ui";
+import { Dialog, DialogProps, iconSize } from "@sonm/ui";
 
 import MdError from "@material-design-icons/svg/outlined/error.svg?component-solid";
 
-import { TranslatedError } from "@revolt/i18n/errors";
+import { TranslatedError } from "@sonm/i18n/errors";
 import { Modals } from "../types";
 
 const Error = styled("div", {

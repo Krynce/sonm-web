@@ -1,4 +1,4 @@
-import { BiRegularChevronLeft, BiRegularChevronRight } from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { JSX, Match, Switch } from "solid-js";
 
@@ -7,8 +7,8 @@ import MdArrowBack from "@material-design-icons/svg/outlined/arrow_back.svg?comp
 import { useLingui } from "@lingui/solid/macro";
 import { css } from "styled-system/css";
 
-import { useState } from "@revolt/state";
-import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
+import { useState } from "@sonm/state";
+import { LAYOUT_SECTIONS } from "@sonm/state/stores/Layout";
 
 /**
  * Wrapper for header icons which adds the chevron on the
@@ -41,7 +41,7 @@ export function HeaderIcon(props: { children: JSX.Element }) {
       <Switch
         fallback={
           <>
-            <BiRegularChevronRight size={20} />
+            <Symbol size={20}>chevron_right</Symbol>
             {props.children}
           </>
         }
@@ -55,7 +55,7 @@ export function HeaderIcon(props: { children: JSX.Element }) {
             true,
           )}
         >
-          <BiRegularChevronLeft size={20} />
+          <Symbol size={20}>chevron_left</Symbol>
           {props.children}
         </Match>
       </Switch>

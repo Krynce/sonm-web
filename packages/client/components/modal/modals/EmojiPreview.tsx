@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { Avatar, Dialog, DialogProps } from "@revolt/ui";
+import { Avatar, Dialog, DialogProps } from "@sonm/ui";
 
 import { Modals } from "../types";
 

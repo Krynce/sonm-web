@@ -2,8 +2,8 @@ import { createFormControl, createFormGroup } from "solid-forms";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { useNavigate } from "@revolt/routing";
-import { Column, Dialog, DialogProps, Form2, Radio2 } from "@revolt/ui";
+import { useNavigate } from "@sonm/routing";
+import { Column, Dialog, DialogProps, Form2, Radio2 } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

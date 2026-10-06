@@ -3,8 +3,8 @@ import { JSX, onMount, Show } from "solid-js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useDevice } from "@revolt/common";
-import { useModals } from "@revolt/modal";
+import { useDevice } from "@sonm/common";
+import { useModals } from "@sonm/modal";
 
 import { Profile } from "../features";
 

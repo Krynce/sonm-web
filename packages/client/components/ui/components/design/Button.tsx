@@ -15,7 +15,7 @@ type Props = Omit<
       JSX.ButtonHTMLAttributes<HTMLButtonElement>,
       "role" | "tabIndex" | "aria-selected"
     >,
-  "onClick" | "_permitAnimation" | "disabled"
+  "onClick" | "permitAnimation" | "disabled"
 > & {
   groupActive?: boolean;
   bg?: string;
@@ -109,11 +109,11 @@ export function Button(props: Props) {
   const variant = () =>
     style.group ? (style.groupActive ? "filled" : "tonal") : style.variant;
 
-  let _permitAnimation = false;
+  let permitAnimation = false;
   createRenderEffect(
     on(
       () => shape(),
-      () => (_permitAnimation = true),
+      () => (permitAnimation = true),
       { defer: true },
     ),
   );
@@ -139,7 +139,7 @@ export function Button(props: Props) {
         size: style.size,
         group: style.group,
         disabled: buttonProps.disabled,
-        _permitAnimation,
+        permitAnimation,
       })}
       style={{
         "background-color": style.bg,
@@ -203,60 +203,9 @@ const button = cva({
       text: {
         "--color": "var(--md-sys-color-primary)",
       },
-      _error: {
+      error: {
         background: "var(--md-sys-color-error)",
         "--color": "var(--md-sys-color-on-error)",
-      },
-
-      // Old entries:
-
-      /**
-       * @deprecated
-       */
-      success: {
-        fill: "var(--unset-fg)",
-        color: "var(--unset-fg)",
-        background: "var(--unset-bg)",
-      },
-      /**
-       * @deprecated
-       */
-      warning: {
-        fill: "var(--unset-fg)",
-        color: "var(--unset-fg)",
-        background: "var(--unset-bg)",
-      },
-      /**
-       * @deprecated
-       */
-      error: {
-        fill: "var(--unset-fg)",
-        color: "var(--unset-fg)",
-        background: "var(--unset-bg)",
-      },
-      /**
-       * @deprecated use filled
-       */
-      primary: {
-        fill: "var(--unset-fg)",
-        color: "var(--unset-fg)",
-        background: "var(--unset-bg)",
-      },
-      /**
-       * @deprecated use tonal
-       */
-      secondary: {
-        fill: "var(--unset-fg)",
-        color: "var(--unset-fg)",
-        background: "var(--unset-bg)",
-      },
-      /**
-       * @deprecated use text instead
-       */
-      plain: {
-        fill: "var(--unset-fg)",
-        color: "var(--unset-fg)",
-        background: "var(--unset-bg)",
       },
     },
     /**
@@ -280,7 +229,7 @@ const button = cva({
     /**
      * Internal helper for expressive button animation
      */
-    _permitAnimation: {
+    permitAnimation: {
       true: {},
       false: {},
     },
@@ -550,7 +499,7 @@ const button = cva({
     // {
     //   shape: "round",
     //   group: ["connected-start", "connected-end", "connected"],
-    //   _permitAnimation: true,
+    //   permitAnimation: true,
     //   css: {
     //     animationName: "materialPhysicsButtonSelect",
     //     animationDuration: "0.3s",
@@ -560,7 +509,7 @@ const button = cva({
     {
       shape: "square",
       group: ["standard"],
-      _permitAnimation: true,
+      permitAnimation: true,
       css: {
         animationName: "materialPhysicsButtonSelect",
         animationDuration: "0.3s",

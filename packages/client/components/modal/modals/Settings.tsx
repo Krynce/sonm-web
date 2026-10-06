@@ -3,10 +3,10 @@ import { Portal } from "solid-js/web";
 import { Motion, Presence } from "solid-motionone";
 import { css } from "styled-system/css";
 
-import { Settings, SettingsConfigurations } from "@revolt/app";
-import { useState } from "@revolt/state";
-import { DialogProps } from "@revolt/ui";
-import { SlideDrawer } from "@revolt/ui/components/navigation/SlideDrawer";
+import { Settings, SettingsConfigurations } from "@sonm/app";
+import { useState } from "@sonm/state";
+import { DialogProps } from "@sonm/ui";
+import { SlideDrawer } from "@sonm/ui/components/navigation/SlideDrawer";
 
 import { Modals } from "../types";
 

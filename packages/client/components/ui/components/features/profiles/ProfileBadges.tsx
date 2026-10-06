@@ -1,8 +1,8 @@
-import { BiSolidShield } from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { Show } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { User, UserBadges } from "stoat.js";
+import { User, UserBadges } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
 import badgeJoke1 from "../../../../../public/assets/badges/amog.svg";
@@ -35,7 +35,7 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Stoat Founder`,
+                  content: t`Sonm Founder`,
                 },
               }}
               src={badgeFounder}
@@ -46,7 +46,7 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Stoat Developer`,
+                  content: t`Sonm Developer`,
                 },
               }}
               src={badgeDeveloper}
@@ -57,7 +57,7 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Donated to Stoat`,
+                  content: t`Donated to Sonm`,
                 },
               }}
               src={badgeSupporter}
@@ -68,7 +68,7 @@ export function ProfileBadges(props: { user: User }) {
               use:floating={{
                 tooltip: {
                   placement: "top",
-                  content: t`Helped translate Stoat`,
+                  content: t`Helped translate Sonm`,
                 },
               }}
               src={badgeTranslator}
@@ -106,7 +106,7 @@ export function ProfileBadges(props: { user: User }) {
                 },
               }}
             >
-              <BiSolidShield />
+              <Symbol fill>shield</Symbol>
             </span>
           </Show>
           <Show

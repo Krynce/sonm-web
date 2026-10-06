@@ -1,7 +1,7 @@
 import { Plural } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { iconSize } from "@revolt/ui/components/utils";
+import { iconSize } from "@sonm/ui/components/utils";
 
 import MdClose from "@material-design-icons/svg/filled/close.svg?component-solid";
 

@@ -10,7 +10,7 @@ import {
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { ALLOWED_IMAGE_TYPES } from "@revolt/state";
+import { ALLOWED_IMAGE_TYPES } from "@sonm/state";
 import { Button, Ripple } from "../../design";
 import { Row } from "../../layout";
 import { Symbol } from "../Symbol";

@@ -1,11 +1,11 @@
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 
-import { useUser } from "@revolt/client";
-import { TextWithEmoji } from "@revolt/markdown";
-import { useModals } from "@revolt/modal";
-import { ColouredText } from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { useUser } from "@sonm/client";
+import { TextWithEmoji } from "@sonm/markdown";
+import { useModals } from "@sonm/modal";
+import { ColouredText } from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { SettingsConfiguration } from ".";
 import { ChannelPermissionsEditor } from "./channel/permissions/ChannelPermissionsEditor";
@@ -15,7 +15,6 @@ import { EmojiList } from "./server/emojis/EmojiList";
 import { ListServerInvites } from "./server/invites/ListServerInvites";
 import { ServerRoleEditor } from "./server/roles/ServerRoleEditor";
 import { ServerRoleOverview } from "./server/roles/ServerRoleOverview";
-import { Discoverable } from "./shared/Discoverable";
 import { BackCard } from "./user/_AccountCard";
 
 const Config: SettingsConfiguration<Server> = {
@@ -63,8 +62,6 @@ const Config: SettingsConfiguration<Server> = {
     switch (id) {
       case "overview":
         return <Overview server={server} />;
-      case "discover":
-        return <Discoverable discoverable={server} fullPage={true} />;
       case "emojis":
         return <EmojiList server={server} />;
       case "roles":
@@ -99,12 +96,6 @@ const Config: SettingsConfiguration<Server> = {
               id: "overview",
               icon: <Symbol size={20}>info</Symbol>,
               title: <Trans>Overview</Trans>,
-            },
-            {
-              id: "discover",
-              hidden: !(server.ownerId === user()?.id),
-              icon: <Symbol size={20}>public</Symbol>,
-              title: <Trans>Discover</Trans>,
             },
           ],
         },

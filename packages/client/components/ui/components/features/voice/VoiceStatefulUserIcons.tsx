@@ -2,7 +2,7 @@ import { Show } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
 
-import { useState } from "@revolt/state";
+import { useState } from "@sonm/state";
 
 import { Symbol } from "../../utils/Symbol";
 

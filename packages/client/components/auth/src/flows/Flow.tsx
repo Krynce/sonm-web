@@ -10,7 +10,7 @@ import {
 
 import { styled } from "styled-system/jsx";
 
-import { floating } from "@revolt/ui/directives";
+import { floating } from "@sonm/ui/directives";
 
 /**
  * Container and shared styling for authentication page flows.

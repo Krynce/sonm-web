@@ -4,15 +4,15 @@ import { Motion, Presence } from "solid-motionone";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useClientLifecycle } from "@revolt/client";
-import { State, TransitionType } from "@revolt/client/Controller";
-import { Button, Ripple, symbolSize, typography } from "@revolt/ui";
+import { useClientLifecycle } from "@sonm/client";
+import { State, TransitionType } from "@sonm/client/Controller";
+import { Button, Ripple, symbolSize, typography } from "@sonm/ui";
 
-import MdBuild from "@material-symbols/svg-400/outlined/build.svg?component-solid";
-import MdClose from "@material-symbols/svg-400/outlined/close.svg?component-solid";
-import MdCollapseContent from "@material-symbols/svg-400/outlined/collapse_content.svg?component-solid";
-import MdExpandContent from "@material-symbols/svg-400/outlined/expand_content.svg?component-solid";
-import MdMinimize from "@material-symbols/svg-400/outlined/minimize.svg?component-solid";
+import MdBuild from "@material-design-icons/svg/outlined/build.svg?component-solid";
+import MdClose from "@material-design-icons/svg/outlined/close.svg?component-solid";
+import MdCollapseContent from "@material-design-icons/svg/outlined/close_fullscreen.svg?component-solid";
+import MdMinimize from "@material-design-icons/svg/outlined/minimize.svg?component-solid";
+import MdExpandContent from "@material-design-icons/svg/outlined/open_in_full.svg?component-solid";
 
 import Wordmark from "../../../../public/assets/web/wordmark.svg?component-solid";
 import { pendingUpdate } from "../../../../src/serviceWorkerInterface";

@@ -1,8 +1,8 @@
 import { For } from "solid-js";
 
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 
-import { useState } from "@revolt/state";
+import { useState } from "@sonm/state";
 
 import { DraftMessage } from "./DraftMessage";
 

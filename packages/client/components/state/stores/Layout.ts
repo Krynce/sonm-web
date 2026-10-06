@@ -1,5 +1,4 @@
-import Instance from "@revolt/instance/Instance";
-import { paramsFromPathname } from "@revolt/routing";
+import { paramsFromPathname } from "@sonm/routing";
 
 import { AbstractStore } from ".";
 import { State } from "..";
@@ -90,9 +89,7 @@ export class Layout extends AbstractStore<"layout", TypeLayout> {
     if (typeof input.activePath === "object") {
       for (const interfaceId of Object.keys(input.activePath)) {
         if (typeof input.activePath[interfaceId] === "string") {
-          layout.activePath[interfaceId] = Instance.relPath(
-            input.activePath[interfaceId],
-          );
+          layout.activePath[interfaceId] = input.activePath[interfaceId];
         }
       }
     }
@@ -126,13 +123,6 @@ export class Layout extends AbstractStore<"layout", TypeLayout> {
   }
 
   /**
-   * Get the last active discover path in the app
-   */
-  getLastActiveDiscoverPath() {
-    return this.get().activePath["discover"] ?? "/discover/servers";
-  }
-
-  /**
    * Get the last active server path
    */
   getLastActiveServerPath(serverId: string) {
@@ -154,11 +144,9 @@ export class Layout extends AbstractStore<"layout", TypeLayout> {
       return;
 
     const params = paramsFromPathname(pathname);
-    const section = pathname.startsWith("/discover")
-      ? "discover"
-      : (params.serverId ?? "home");
+    const section = params.serverId ?? "home";
     this.set("activeInterface", section);
-    this.set("activePath", section, Instance.relPath(pathname));
+    this.set("activePath", section, pathname);
   }
 
   /**

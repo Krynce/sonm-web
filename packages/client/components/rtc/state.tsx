@@ -23,30 +23,26 @@ import {
   VideoEncoding,
   VideoPresets,
 } from "livekit-client";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 
-import { SoundController, useSound } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import { ModalController, useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
+import { SoundController, useSound } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { ModalController, useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
 import {
   NoiseSuppresionState,
   ScreenShareQualityName,
   Voice as VoiceSettings,
-} from "@revolt/state/stores/Voice";
-import { VoiceCallCardContext } from "@revolt/ui/components/features/voice/callCard/VoiceCallCard";
+} from "@sonm/state/stores/Voice";
+import { VoiceCallCardContext } from "@sonm/ui/components/features/voice/callCard/VoiceCallCard";
 
-import { Device, useDevice } from "@revolt/common";
+import { Device, useDevice } from "@sonm/common";
 import { InRoom } from "./components/InRoom";
 import { RoomAudioManager } from "./components/RoomAudioManager";
 import { VoiceProcessor } from "./VoiceProcessor";
 
 type State =
-  | "READY"
-  | "DISCONNECTED"
-  | "CONNECTING"
-  | "CONNECTED"
-  | "RECONNECTING";
+  "READY" | "DISCONNECTED" | "CONNECTING" | "CONNECTED" | "RECONNECTING";
 
 export type VoiceLayout = "fullscreen" | "expanded" | "collapsed" | undefined;
 

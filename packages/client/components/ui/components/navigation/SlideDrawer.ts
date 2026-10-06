@@ -6,7 +6,7 @@ import {
   Setter,
 } from "solid-js";
 
-import { useDevice } from "@revolt/common";
+import { useDevice } from "@sonm/common";
 
 const ANIM_MS = 150,
   VEL_MS = 33, //30Hz velocity update

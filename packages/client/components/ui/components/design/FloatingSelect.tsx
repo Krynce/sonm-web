@@ -1,4 +1,4 @@
-import { useFloating } from "solid-floating-ui";
+import { useFloating } from "@sonm/common/lib/floating";
 import {
   JSX,
   Show,
@@ -17,8 +17,7 @@ import { MenuItem } from "mdui/components/menu-item";
 import { styled } from "styled-system/jsx";
 
 type FloatingSelectPropsLabel =
-  | { required: true; label: string }
-  | { required?: false; label?: string };
+  { required: true; label: string } | { required?: false; label?: string };
 
 type FloatingSelectProps = FloatingSelectPropsLabel & {
   value?: string;

@@ -36,13 +36,7 @@ type Props = JSX.HTMLAttributes<HTMLInputElement> & {
     | "week";
   variant?: "filled" | "outlined";
   enterkeyhint?:
-    | "enter"
-    | "done"
-    | "go"
-    | "next"
-    | "previous"
-    | "search"
-    | "find";
+    "enter" | "done" | "go" | "next" | "previous" | "search" | "find";
   helper?: string;
   "helper-on-focus"?: boolean;
   clearable?: boolean;

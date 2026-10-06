@@ -1,19 +1,12 @@
-import {
-  BiRegularHeadphone,
-  BiSolidFile,
-  BiSolidFileTxt,
-  BiSolidImage,
-  BiSolidVideo,
-} from "solid-icons/bi";
 import { Match, Show, Switch } from "solid-js";
 
-import { File, MessageEmbed } from "stoat.js";
+import { File, MessageEmbed } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { IconButton, Text } from "@revolt/ui/components/design";
-import { Column, Row } from "@revolt/ui/components/layout";
-import { humanFileSize } from "@revolt/ui/components/utils";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { IconButton, Text } from "@sonm/ui/components/design";
+import { Column, Row } from "@sonm/ui/components/layout";
+import { humanFileSize } from "@sonm/ui/components/utils";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 /**
  * Base container
@@ -40,14 +33,22 @@ interface Props {
 export function FileInfo(props: Props) {
   return (
     <Base align>
-      <Switch fallback={<BiSolidFile size={24} />}>
+      <Switch
+        fallback={
+          <Symbol size={24} fill>
+            draft
+          </Symbol>
+        }
+      >
         <Match
           when={
             props.file?.metadata.type === "Image" ||
             props.embed?.type === "Image"
           }
         >
-          <BiSolidImage size={24} />
+          <Symbol size={24} fill>
+            image
+          </Symbol>
         </Match>
         <Match
           when={
@@ -55,13 +56,17 @@ export function FileInfo(props: Props) {
             props.embed?.type === "Video"
           }
         >
-          <BiSolidVideo size={24} />
+          <Symbol size={24} fill>
+            movie
+          </Symbol>
         </Match>
         <Match when={props.file?.metadata.type === "Audio"}>
-          <BiRegularHeadphone size={24} />
+          <Symbol size={24}>headphones</Symbol>
         </Match>
         <Match when={props.file?.metadata.type === "Text"}>
-          <BiSolidFileTxt size={24} />
+          <Symbol size={24} fill>
+            description
+          </Symbol>
         </Match>
       </Switch>
       <Column grow>

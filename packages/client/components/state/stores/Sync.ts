@@ -1,26 +1,20 @@
-import isEqual from "lodash.isequal";
+import isEqual from "fast-deep-equal";
 import { batch } from "solid-js";
 
 import { ReactiveSet } from "@solid-primitives/set";
-import { Client } from "stoat.js";
+import { Client } from "sonm.js";
 
 import { State } from "..";
 
 import { AbstractStore } from ".";
 import { TypeNotificationOptions } from "./NotificationOptions";
 import { TypeOrdering } from "./Ordering";
-import { TypeReleaseNotes } from "./ReleaseNotes";
 
-type SynchronisedStores =
-  | "ordering"
-  | "notifications"
-  | "release-notes"
-  | "server-folders";
+type SynchronisedStores = "ordering" | "notifications" | "server-folders";
 
 const STORE_KEYS: SynchronisedStores[] = [
   "ordering",
   "notifications",
-  "release-notes",
   "server-folders",
 ];
 
@@ -65,7 +59,6 @@ export class Sync extends AbstractStore<"sync", TypeSynchronisation> {
       revision: {
         ordering: 0,
         notifications: 0,
-        "release-notes": 0,
         "server-folders": 0,
       },
     };
@@ -189,7 +182,7 @@ export class Sync extends AbstractStore<"sync", TypeSynchronisation> {
       if (
         !isEqual(
           this.state[key].get(),
-          parsed as TypeOrdering & TypeNotificationOptions & TypeReleaseNotes,
+          parsed as TypeOrdering & TypeNotificationOptions,
         )
       ) {
         this.touch(key);

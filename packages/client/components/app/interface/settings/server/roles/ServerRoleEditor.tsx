@@ -2,13 +2,13 @@ import { For, createMemo } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { createFormControl, createFormGroup } from "solid-forms";
-import { API, Server, ServerRole } from "stoat.js";
+import { API, Server, ServerRole } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
+import { useClient } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
 import {
   CategoryButton,
   ColourPicker,
@@ -17,11 +17,11 @@ import {
   Form2,
   Text,
   typography,
-} from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
-import { createMaterialColourVariables } from "@revolt/ui/themes";
+} from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
+import { createMaterialColourVariables } from "@sonm/ui/themes";
 
-import { cropProcess } from "@revolt/modal/modals/CropProcess";
+import { cropProcess } from "@sonm/modal/modals/CropProcess";
 import { useSettingsNavigation } from "../../Settings";
 import { ChannelPermissionsEditor } from "../../channel/permissions/ChannelPermissionsEditor";
 
@@ -93,7 +93,7 @@ function RoleColourPicker(props: {
                     </ColouredText>
                   </PreviewUsername>
                   <PreviewBody>
-                    <Trans>Stoat rocks!</Trans>
+                    <Trans>Sonm rocks!</Trans>
                   </PreviewBody>
                 </PreviewMessageContent>
               </PreviewMessage>
@@ -344,6 +344,6 @@ const PreviewUsername = styled("span", {
 
 const PreviewBody = styled("span", {
   base: {
-    ...typography.raw({ class: "_messages" }),
+    ...typography.raw({ class: "messages" }),
   },
 });

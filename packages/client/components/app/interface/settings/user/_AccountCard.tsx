@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { useClient } from "@revolt/client";
-import { Avatar, OverflowingText, Ripple, typography } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { Avatar, OverflowingText, Ripple, typography } from "@sonm/ui";
 
 import MdArrowBack from "@material-design-icons/svg/outlined/arrow_back.svg?component-solid";
 

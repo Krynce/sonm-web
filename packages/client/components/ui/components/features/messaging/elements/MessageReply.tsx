@@ -1,15 +1,15 @@
-import { BiSolidFile } from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { Match, Show, Switch } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { type Message } from "stoat.js";
+import { type Message } from "sonm.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { floatingUserMenusFromMessage } from "@revolt/app/menus/UserContextMenu";
-import { renderSimpleMarkdown } from "@revolt/markdown";
-import { Avatar, typography } from "@revolt/ui/components/design";
-import { NonBreakingText } from "@revolt/ui/components/utils";
+import { floatingUserMenusFromMessage } from "@sonm/app/menus/UserContextMenu";
+import { renderSimpleMarkdown } from "@sonm/markdown";
+import { Avatar, typography } from "@sonm/ui/components/design";
+import { NonBreakingText } from "@sonm/ui/components/utils";
 
 import { Username } from "../../legacy";
 
@@ -32,7 +32,7 @@ interface Props {
 
 export const Base = styled("div", {
   base: {
-    ...typography.raw({ class: "_messages" }),
+    ...typography.raw({ class: "messages" }),
     maxHeight: "1.5em",
     overflow: "hidden",
     minWidth: 0,
@@ -136,7 +136,9 @@ export function MessageReply(props: Props) {
           <Link href={props.message!.path}>
             <Show when={props.message!.attachments}>
               <Attachments>
-                <BiSolidFile size={16} />
+                <Symbol size={16} fill>
+                  draft
+                </Symbol>
                 <Switch fallback={<Trans>Sent an attachment</Trans>}>
                   <Match when={props.message!.attachments!.length > 1}>
                     <Trans>Sent multiple attachments</Trans>

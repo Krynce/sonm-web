@@ -126,9 +126,7 @@ export const FONTS = {
 
 export const MONOSPACE_FONTS = {
   "JetBrains Mono": {
-    load: () => {
-      /* default */
-    },
+    load: () => import("@fontsource/jetbrains-mono/400.css"),
   },
   "Fira Code": {
     load: () => import("@fontsource/fira-code/400.css"),
@@ -155,6 +153,3 @@ export type MonospaceFonts = keyof typeof MONOSPACE_FONTS;
 
 export const FONT_KEYS = Object.keys(FONTS).sort();
 export const MONOSPACE_FONT_KEYS = Object.keys(MONOSPACE_FONTS).sort();
-
-export const DEFAULT_FONT = "Open Sans";
-export const DEFAULT_MONO_FONT = "Fira Code";

@@ -1,6 +1,6 @@
 import { mergeProps, splitProps } from "solid-js";
 
-import { IS_DEV } from "@revolt/client";
+import { IS_DEV } from "@sonm/client";
 
 import { type ActiveModal } from ".";
 import { AddBotModal } from "./modals/AddBot";
@@ -8,7 +8,6 @@ import { AddFriendModal } from "./modals/AddFriend";
 import { AddMembersToGroupModal } from "./modals/AddMembersToGroup";
 import { BanMemberModal } from "./modals/BanMember";
 import { BanNonMemberModal } from "./modals/BanNonMember";
-import { ChangelogModal } from "./modals/Changelog";
 import { ChannelInfoModal } from "./modals/ChannelInfo";
 import { ChannelToggleMatureModal } from "./modals/ChannelToggleMature";
 import { CreateBotModal } from "./modals/CreateBot";
@@ -94,8 +93,6 @@ export function RenderModal(props: ActiveModal & { onClose: () => void }) {
       return <BanMemberModal {...modalProps} />;
     case "ban_non_member":
       return <BanNonMemberModal {...modalProps} />;
-    case "changelog":
-      return <ChangelogModal {...modalProps} />;
     case "add_members_to_group":
       return <AddMembersToGroupModal {...modalProps} />;
     case "channel_info":

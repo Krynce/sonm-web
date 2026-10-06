@@ -7,17 +7,17 @@ import {
   ViewUpdate,
   WidgetType,
 } from "@codemirror/view";
-import { Channel, ServerMember, ServerRole, User } from "stoat.js";
+import { Channel, ServerMember, ServerRole, User } from "sonm.js";
 
 import {
   RE_UNICODE_EMOJI,
   unicodeEmojiUrl,
-} from "@revolt/markdown/emoji/UnicodeEmoji";
-import { userInformation } from "@revolt/markdown/users";
-import { useSmartParams } from "@revolt/routing";
+} from "@sonm/markdown/emoji/UnicodeEmoji";
+import { userInformation } from "@sonm/markdown/users";
+import { useSmartParams } from "@sonm/routing";
 
-import { useInstance } from "@revolt/instance";
-import { parseUnicodeEmoji } from "@revolt/markdown/plugins/unicodeEmoji";
+import { useInstance } from "@sonm/instance";
+import { parseUnicodeEmoji } from "@sonm/markdown/plugins/unicodeEmoji";
 import { isInCodeBlock } from "./codeMirrorCommon";
 
 export function codeMirrorWidgets() {

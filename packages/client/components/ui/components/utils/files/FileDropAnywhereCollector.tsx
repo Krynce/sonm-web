@@ -1,9 +1,4 @@
-import {
-  BiSolidFile,
-  BiSolidFileImage,
-  BiSolidFileTxt,
-  BiSolidVideoRecording,
-} from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import {
   Match,
   Show,
@@ -18,7 +13,7 @@ import { Motion } from "solid-motionone";
 import { Plural } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { useModals } from "@revolt/modal";
+import { useModals } from "@sonm/modal";
 
 // import { typography } from "../../design";
 import { PreviewStack } from "../PreviewStack";
@@ -202,15 +197,27 @@ export function FileDropAnywhereCollector(props: Props) {
             }
           >
             {(item) => (
-              <Switch fallback={<BiSolidFile size={64} />}>
+              <Switch
+                fallback={
+                  <Symbol size={64} fill>
+                    draft
+                  </Symbol>
+                }
+              >
                 <Match when={item.type.startsWith("text/")}>
-                  <BiSolidFileTxt size={64} />
+                  <Symbol size={64} fill>
+                    description
+                  </Symbol>
                 </Match>
                 <Match when={item.type.startsWith("image/")}>
-                  <BiSolidFileImage size={64} />
+                  <Symbol size={64} fill>
+                    image
+                  </Symbol>
                 </Match>
                 <Match when={item.type.startsWith("video/")}>
-                  <BiSolidVideoRecording size={64} />
+                  <Symbol size={64} fill>
+                    video_file
+                  </Symbol>
                 </Match>
               </Switch>
             )}

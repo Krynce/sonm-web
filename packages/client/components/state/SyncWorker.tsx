@@ -1,10 +1,10 @@
 import { createEffect, on, onCleanup } from "solid-js";
 
-import { ProtocolV1 } from "stoat.js";
+import { ProtocolV1 } from "sonm.js";
 
-import { useClient, useClientLifecycle } from "@revolt/client";
+import { useClient, useClientLifecycle } from "@sonm/client";
 
-import { State } from "@revolt/client/Controller";
+import { State } from "@sonm/client/Controller";
 import { useState } from ".";
 
 /**

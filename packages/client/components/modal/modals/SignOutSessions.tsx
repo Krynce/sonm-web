@@ -1,9 +1,9 @@
 import { Trans } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
 
-import { Dialog, DialogProps } from "@revolt/ui";
+import { Dialog, DialogProps } from "@sonm/ui";
 
-import { useClient } from "@revolt/client";
+import { useClient } from "@sonm/client";
 import { useModals } from "..";
 import { Modals } from "../types";
 

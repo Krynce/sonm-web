@@ -1,11 +1,9 @@
-import { useFloating } from "solid-floating-ui";
+import { useFloating } from "@sonm/common/lib/floating";
 import {
   Accessor,
   JSX,
-  Match,
   Setter,
   Show,
-  Switch,
   createContext,
   createSignal,
   onCleanup,
@@ -18,17 +16,13 @@ import { flip, offset, shift } from "@floating-ui/dom";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useDevice } from "@revolt/common";
-import { Button } from "@revolt/ui/components/design";
-import { Row } from "@revolt/ui/components/layout";
+import { useDevice } from "@sonm/common";
 
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { EmojiPicker } from "./EmojiPicker";
-import { GifPicker } from "./GifPicker";
 
 export type MediaPickerProps = {
   ref: Setter<HTMLElement | undefined>;
-  onClickGif: (_: unknown, ref?: HTMLDivElement) => void;
   onClickEmoji: (_: unknown, ref?: HTMLDivElement) => void;
 };
 
@@ -58,15 +52,14 @@ export const CompositionMediaPickerContext = createContext(
 
 export function CompositionMediaPicker(props: Props) {
   const [anchor, setAnchor] = createSignal<HTMLElement>();
-  const [show, setShow] = createSignal<"gif" | "emoji">();
+  const [show, setShow] = createSignal<"emoji">();
   let altRef: HTMLDivElement | undefined;
 
   return (
     <CompositionMediaPickerContext.Provider
       value={{
         ...props,
-        // close the picker once a GIF is sent
-        // (technically any message, but what else are you gonna be sending out the gif picker)
+        // close the picker once a message is sent
         onMessage: (content) => {
           props.onMessage(content);
           setShow(undefined);
@@ -75,10 +68,6 @@ export function CompositionMediaPicker(props: Props) {
     >
       {props.children({
         ref: setAnchor,
-        onClickGif: (_, ref) => {
-          altRef = ref;
-          setShow((current) => (current === "gif" ? undefined : "gif"));
-        },
         onClickEmoji: (_, ref) => {
           altRef = ref;
           setShow((current) => (current === "emoji" ? undefined : "emoji"));
@@ -96,7 +85,6 @@ export function CompositionMediaPicker(props: Props) {
               <Picker
                 channel={props.channel}
                 anchor={() => altRef || anchor()}
-                show={show}
                 setShow={setShow}
                 onMessage={props.onMessage}
                 onTextReplacement={props.onTextReplacement}
@@ -112,8 +100,7 @@ export function CompositionMediaPicker(props: Props) {
 function Picker(
   props: Pick<Props, "onMessage" | "onTextReplacement" | "channel"> & {
     anchor: Accessor<HTMLElement | undefined>;
-    show: Accessor<"gif" | "emoji" | undefined>;
-    setShow: Setter<"gif" | "emoji" | undefined>;
+    setShow: Setter<"emoji" | undefined>;
   },
 ) {
   const device = useDevice();
@@ -169,40 +156,7 @@ function Picker(
       }
     >
       <Container>
-        <Row gap="xs" justify class="CompositionButton">
-          <Show
-            when={!props.channel || props.channel.havePermission("SendEmbeds")}
-          >
-            <Button
-              groupActive={props.show() === "gif"}
-              onPress={() => props.setShow("gif")}
-              group="connected-start"
-            >
-              GIFs
-            </Button>
-          </Show>
-
-          <Button
-            groupActive={props.show() === "emoji"}
-            onPress={() => props.setShow("emoji")}
-            group={
-              !props.channel || props.channel.havePermission("SendEmbeds")
-                ? "connected-end"
-                : undefined
-            }
-          >
-            Emoji
-          </Button>
-        </Row>
-
-        <Switch fallback={<span>Not available yet.</span>}>
-          <Match when={props.show() === "gif"}>
-            <GifPicker />
-          </Match>
-          <Match when={props.show() === "emoji"}>
-            <EmojiPicker />
-          </Match>
-        </Switch>
+        <EmojiPicker />
       </Container>
     </Base>
   );

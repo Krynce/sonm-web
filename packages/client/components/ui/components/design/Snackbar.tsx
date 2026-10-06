@@ -19,12 +19,7 @@ export type SnackbarItem = {
   autoCloseDelay?: number;
   messageLine?: 1 | 2;
   placement?:
-    | "top"
-    | "top-start"
-    | "top-end"
-    | "bottom"
-    | "bottom-start"
-    | "bottom-end";
+    "top" | "top-start" | "top-end" | "bottom" | "bottom-start" | "bottom-end";
   onAction?: () => void;
   onClose?: () => void;
   closeOnAction?: boolean;

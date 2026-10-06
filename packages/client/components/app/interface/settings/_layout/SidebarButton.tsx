@@ -2,9 +2,9 @@ import { createEffect, JSX, splitProps } from "solid-js";
 import { styled } from "styled-system/jsx";
 
 import { MdRipple } from "@material/web/ripple/ripple";
-import { useState } from "@revolt/state";
-import { Ripple } from "@revolt/ui";
-import { SlideState } from "@revolt/ui/components/navigation/SlideDrawer";
+import { useState } from "@sonm/state";
+import { Ripple } from "@sonm/ui";
+import { SlideState } from "@sonm/ui/components/navigation/SlideDrawer";
 
 /**
  * Sidebar button

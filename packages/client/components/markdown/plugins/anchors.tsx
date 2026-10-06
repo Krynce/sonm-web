@@ -3,15 +3,15 @@ import { JSX, Show, splitProps } from "solid-js";
 import { Trans } from "@lingui/solid/macro";
 import { cva } from "styled-system/css";
 
-import { MessageContextMenu, useMessage } from "@revolt/app";
-import { useClient } from "@revolt/client";
-import { DefaultHost, useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
-import { paramsFromPathname } from "@revolt/routing";
-import { useState } from "@revolt/state";
-import { Avatar, iconSize } from "@revolt/ui";
-import { Invite } from "@revolt/ui/components/features/messaging/elements/Invite";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { MessageContextMenu, useMessage } from "@sonm/app";
+import { useClient } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
+import { paramsFromPathname } from "@sonm/routing";
+import { useState } from "@sonm/state";
+import { Avatar, iconSize } from "@sonm/ui";
+import { Invite } from "@sonm/ui/components/features/messaging/elements/Invite";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import MdChat from "@material-design-icons/svg/outlined/chat.svg?component-solid";
 import MdChevronRight from "@material-design-icons/svg/outlined/chevron_right.svg?component-solid";
@@ -46,15 +46,8 @@ const internalLink = cva({
 
 function inAppScope(link: URL, root: string): boolean {
   return (
-    [
-      root,
-      "https://stoat.chat",
-      "https://beta.stoat.chat",
-      "https://old.stoat.chat",
-      "https://revolt.chat",
-      "https://app.revolt.chat",
-    ].includes(link.origin) &&
-    /\/(i|app|home|pwa|dev|invite|bot|friends|server|channel)\/?/.test(
+    link.origin === root &&
+    /\/(app|home|pwa|dev|invite|bot|friends|server|channel)\/?/.test(
       link.pathname,
     )
   );
@@ -79,7 +72,7 @@ export function RenderAnchor(
 
   // Test internal link
   try {
-    let url = new URL(localProps.href);
+    const url = new URL(localProps.href);
 
     // Only allow http, https, mailto, and tel protocols
     if (
@@ -91,49 +84,16 @@ export function RenderAnchor(
       return <span>{remoteProps.children}</span>;
     }
 
-    // Remap discover links to native links
-    if (url.origin === "https://rvlt.gg" || url.origin === "https://stt.gg") {
-      if (/^\/[\w\d]+$/.test(url.pathname)) {
-        url = new URL(`/invite${url.pathname}`, instance.origin);
-      } else if (url.pathname.startsWith("/discover")) {
-        url = new URL(url.pathname, instance.origin);
-      }
-    }
-
     // Determine whether it's in our scope
     if (inAppScope(url, instance.origin)) {
       const client = useClient(),
         params = paramsFromPathname(url.pathname);
 
-      // HOTFIX: This code should have been in multi-instance, not the instance pr.
-      // This hotfix ensures that the host matches the url hostname and remote urls
-      // are rendered as external links
-      params.host = url.hostname;
-      // END HOTFIX
-
-      params.host ||= DefaultHost;
-      const remote = params.host !== (instance.host || DefaultHost);
-
       if (params.exactChannel) {
         const channel = () => client().channels.get(params.channelId!);
         const internalUrl = () => {
-          // HOTFIX: See above
-          // Override remote links until multi-tenant implemented.
-          if (remote) {
-            return new URL(
-              `https://${params.host}` +
-                (channel()?.serverId ? `/server/${channel()!.serverId}` : "") +
-                `/channel/${params.channelId}` +
-                (params.exactMessage && params.messageId
-                  ? `/${params.messageId}`
-                  : ""),
-              location.origin,
-            ).href;
-          }
-          // END HOTFIX
           return new URL(
-            `/i/${params.host}` +
-              (channel()?.serverId ? `/server/${channel()!.serverId}` : "") +
+            (channel()?.serverId ? `/server/${channel()!.serverId}` : "") +
               `/channel/${params.channelId}` +
               (params.exactMessage && params.messageId
                 ? `/${params.messageId}`
@@ -143,7 +103,7 @@ export function RenderAnchor(
         };
         return (
           <Show
-            when={remote || channel()}
+            when={channel()}
             fallback={
               <span class={internalLink()}>
                 <Symbol>tag</Symbol>
@@ -155,12 +115,9 @@ export function RenderAnchor(
               class={internalLink()}
               disabled={props.disabled}
               href={internalUrl()}
-              // HOTFIX: See above
-              target={remote ? "_blank" : void 0}
-              // END HOTFIX
             >
               <Symbol>tag</Symbol>
-              {remote ? <Trans>Remote Channel</Trans> : channel()!.name}
+              {channel()!.name}
               {params.exactMessage && (
                 <>
                   <MdChevronRight {...iconSize("1em")} />
@@ -173,14 +130,11 @@ export function RenderAnchor(
       } else if (params.exactServer) {
         const server = () => client().servers.get(params.serverId!);
         const internalUrl = () =>
-          new URL(
-            `/i/${params.host}/server/${params.serverId}`,
-            location.origin,
-          ).href;
+          new URL(`/server/${params.serverId}`, location.origin).href;
 
         return (
           <Show
-            when={remote || server()}
+            when={server()}
             fallback={
               <span class={internalLink()}>
                 <MdPeople {...iconSize("1em")} />
@@ -193,17 +147,8 @@ export function RenderAnchor(
               disabled={props.disabled}
               href={internalUrl()}
             >
-              {remote ? (
-                <>
-                  <MdPeople {...iconSize("1em")} />
-                  <Trans>Remote Server</Trans>
-                </>
-              ) : (
-                <>
-                  <Avatar size={16} src={server()!.iconURL} />
-                  {server()!.name}
-                </>
-              )}
+              <Avatar size={16} src={server()!.iconURL} />
+              {server()!.name}
             </LinkComponent>
           </Show>
         );

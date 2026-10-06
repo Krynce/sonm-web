@@ -1,8 +1,8 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { useClient } from "@revolt/client";
-import { Markdown } from "@revolt/markdown";
-import { Dialog, DialogProps } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { Markdown } from "@sonm/markdown";
+import { Dialog, DialogProps } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

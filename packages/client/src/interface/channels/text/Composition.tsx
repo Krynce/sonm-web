@@ -9,15 +9,15 @@ import {
 } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { debounce } from "@revolt/common";
-import { createIsTimedOut } from "@revolt/common/lib/createIsTimedOut";
-import { useInstance } from "@revolt/instance";
-import { createKeybind, Keybind, KeybindAction } from "@revolt/keybinds";
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
+import { useClient } from "@sonm/client";
+import { debounce } from "@sonm/common";
+import { createIsTimedOut } from "@sonm/common/lib/createIsTimedOut";
+import { useInstance } from "@sonm/instance";
+import { createKeybind, Keybind, KeybindAction } from "@sonm/keybinds";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
 import {
   CompositionMediaPicker,
   FileCarousel,
@@ -27,9 +27,9 @@ import {
   IconButton,
   MessageBox,
   MessageReplyPreview,
-} from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
-import { useSearchSpace } from "@revolt/ui/components/utils/autoComplete";
+} from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
+import { useSearchSpace } from "@sonm/ui/components/utils/autoComplete";
 
 interface Props {
   /**
@@ -413,17 +413,6 @@ export function MessageComposition(props: Props) {
               >
                 {(triggerProps) => (
                   <>
-                    <Show
-                      when={
-                        !canSend() && props.channel.havePermission("SendEmbeds")
-                      }
-                    >
-                      <MessageBox.InlineIcon>
-                        <IconButton onPress={triggerProps.onClickGif}>
-                          <Symbol>gif</Symbol>
-                        </IconButton>
-                      </MessageBox.InlineIcon>
-                    </Show>
                     <MessageBox.InlineIcon>
                       <IconButton onPress={triggerProps.onClickEmoji}>
                         <Symbol>mood</Symbol>
@@ -457,7 +446,7 @@ export function MessageComposition(props: Props) {
         actionsAppend={
           <Show when={state.settings.getValue("appearance:show_send_button")}>
             <IconButton
-              _compositionSendMessage
+              compositionSendMessage
               size="sm"
               variant={canSend() ? "filled" : "tonal"}
               shape="square"

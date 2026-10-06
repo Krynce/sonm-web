@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#MISE description="Build sonm-api and sonm.js"
+set -e
+
+pnpm --filter sonm-api build
+pnpm --filter sonm.js build

@@ -1,14 +1,14 @@
 import { For, Match, Show, Switch } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import type { Channel } from "stoat.js";
+import type { Channel } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient, useUser } from "@revolt/client";
-import { Markdown } from "@revolt/markdown";
-import { userInformation } from "@revolt/markdown/users";
-import { useState } from "@revolt/state";
-import type { UnsentMessage } from "@revolt/state/stores/Draft";
+import { useClient, useUser } from "@sonm/client";
+import { Markdown } from "@sonm/markdown";
+import { userInformation } from "@sonm/markdown/users";
+import { useState } from "@sonm/state";
+import type { UnsentMessage } from "@sonm/state/stores/Draft";
 import {
   Avatar,
   MessageContainer,
@@ -16,7 +16,7 @@ import {
   SizedContent,
   Text,
   Username,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import { DraftMessageContextMenu } from "../../../menus/DraftMessageContextMenu";
 

@@ -12,25 +12,19 @@ import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { decodeTime, ulid } from "ulid";
 
-import { DraftMessages, Messages } from "@revolt/app";
-import { useClient } from "@revolt/client";
-import { Keybind, KeybindAction, createKeybind } from "@revolt/keybinds";
-import { useNavigate, useSmartParams } from "@revolt/routing";
-import { useState } from "@revolt/state";
-import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
-import {
-  BelowFloatingHeader,
-  Header,
-  NewMessages,
-  Text,
-  main,
-} from "@revolt/ui";
-import { VoiceChannelCallCardMount } from "@revolt/ui/components/features/voice/callCard/VoiceCallCard";
+import { DraftMessages, Messages } from "@sonm/app";
+import { useClient } from "@sonm/client";
+import { Keybind, KeybindAction, createKeybind } from "@sonm/keybinds";
+import { useNavigate, useSmartParams } from "@sonm/routing";
+import { useState } from "@sonm/state";
+import { LAYOUT_SECTIONS } from "@sonm/state/stores/Layout";
+import { BelowFloatingHeader, Header, NewMessages, Text, main } from "@sonm/ui";
+import { VoiceChannelCallCardMount } from "@sonm/ui/components/features/voice/callCard/VoiceCallCard";
 
 import { ChannelHeader } from "../ChannelHeader";
 import { ChannelPageProps } from "../ChannelPage";
 
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { MessageComposition } from "./Composition";
 import { isLargeServer } from "./largeServer";
 import { MemberSidebar } from "./MemberSidebar";

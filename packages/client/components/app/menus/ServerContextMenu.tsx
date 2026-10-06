@@ -3,13 +3,13 @@ import { For, Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 import dayjs from "dayjs";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { useDevice } from "@revolt/common";
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
-import { Column, Text, Time } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { useDevice } from "@sonm/common";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
+import { Column, Text, Time } from "@sonm/ui";
 
 import MdAlternateEmail from "@material-design-icons/svg/outlined/alternate_email.svg?component-solid";
 import MdBadge from "@material-design-icons/svg/outlined/badge.svg?component-solid";
@@ -23,13 +23,12 @@ import MdNotificationsOff from "@material-design-icons/svg/outlined/notification
 import MdPersonAdd from "@material-design-icons/svg/outlined/person_add.svg?component-solid";
 import MdReport from "@material-design-icons/svg/outlined/report.svg?component-solid";
 import MdSettings from "@material-design-icons/svg/outlined/settings.svg?component-solid";
-import MdShield from "@material-design-icons/svg/outlined/shield.svg?component-solid";
 
-import MdDoNotDisturbOff from "@material-symbols/svg-400/outlined/do_not_disturb_off.svg?component-solid";
-import MdDoNotDisturbOn from "@material-symbols/svg-400/outlined/do_not_disturb_on.svg?component-solid";
-import MdNotificationSettings from "@material-symbols/svg-400/outlined/notification_settings.svg?component-solid";
-import MdRadioButtonChecked from "@material-symbols/svg-400/outlined/radio_button_checked-fill.svg?component-solid";
-import MdRadioButtonUnchecked from "@material-symbols/svg-400/outlined/radio_button_unchecked.svg?component-solid";
+import MdRadioButtonChecked from "@material-design-icons/svg/filled/radio_button_checked.svg?component-solid";
+import MdDoNotDisturbOff from "@material-design-icons/svg/outlined/do_not_disturb_off.svg?component-solid";
+import MdDoNotDisturbOn from "@material-design-icons/svg/outlined/do_not_disturb_on.svg?component-solid";
+import MdNotificationSettings from "@material-design-icons/svg/outlined/edit_notifications.svg?component-solid";
+import MdRadioButtonUnchecked from "@material-design-icons/svg/outlined/radio_button_unchecked.svg?component-solid";
 
 import {
   ContextMenu,
@@ -116,16 +115,6 @@ export function ServerContextMenu(props: { server: Server }) {
   }
 
   /**
-   * Open server in Stoat Admin Panel
-   */
-  function openAdminPanel() {
-    window.open(
-      `https://admin.stoatinternal.com/panel/inspect/server/${props.server.id}`,
-      "_blank",
-    );
-  }
-
-  /**
    * Copy server id to clipboard
    */
   function copyId() {
@@ -180,7 +169,7 @@ export function ServerContextMenu(props: { server: Server }) {
               state.notifications.setServerMute(props.server, undefined)
             }
             symbol={MdDoNotDisturbOff}
-            _titleCase={false}
+            titleCase={false}
           >
             <Column gap="none">
               <Trans>Unmute Server</Trans>
@@ -229,7 +218,7 @@ export function ServerContextMenu(props: { server: Server }) {
                       : undefined,
                   })
                 }
-                _titleCase={false}
+                titleCase={false}
               >
                 {i18n}
               </ContextMenuButton>
@@ -355,20 +344,6 @@ export function ServerContextMenu(props: { server: Server }) {
         </ContextMenuButton>
       </Show>
 
-      <Show
-        when={
-          state.settings.getValue("advanced:admin_panel") &&
-          state.settings.getValue("advanced:copy_id")
-        }
-      >
-        <ContextMenuDivider />
-      </Show>
-
-      <Show when={state.settings.getValue("advanced:admin_panel")}>
-        <ContextMenuButton icon={MdShield} onClick={openAdminPanel}>
-          <Trans>Admin Panel</Trans>
-        </ContextMenuButton>
-      </Show>
       <Show when={state.settings.getValue("advanced:copy_id")}>
         <ContextMenuButton icon={MdBadge} onClick={copyId}>
           <Trans>Copy server ID</Trans>

@@ -1,15 +1,15 @@
 import { For, Show, createMemo } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
-import { API } from "stoat.js";
+import { API } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useMessage } from "@revolt/app";
-import { Emoji } from "@revolt/markdown";
-import { useUsers } from "@revolt/markdown/users";
-import { Ripple, Text } from "@revolt/ui/components/design";
-import { Tooltip } from "@revolt/ui/components/floating";
-import { Row } from "@revolt/ui/components/layout";
+import { useMessage } from "@sonm/app";
+import { Emoji } from "@sonm/markdown";
+import { useUsers } from "@sonm/markdown/users";
+import { Ripple, Text } from "@sonm/ui/components/design";
+import { Tooltip } from "@sonm/ui/components/floating";
+import { Row } from "@sonm/ui/components/layout";
 
 import MdAdd from "@material-design-icons/svg/outlined/add.svg?component-solid";
 
@@ -190,7 +190,7 @@ function Reaction(props: {
           <span style={{ "--emoji-size": "3em" }}>
             <Emoji emoji={props.reaction} />
           </span>
-          <Text class="_messages">
+          <Text class="messages">
             <PeopleList>{peopleList()}</PeopleList>
           </Text>
         </Row>

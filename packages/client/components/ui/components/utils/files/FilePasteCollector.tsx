@@ -1,4 +1,4 @@
-import { useModals } from "@revolt/modal";
+import { useModals } from "@sonm/modal";
 import { mimes } from "mrmime";
 import { onCleanup, onMount } from "solid-js";
 
@@ -64,7 +64,7 @@ export function FilePasteCollector(props: Props) {
    */
   async function onPaste(event: ClipboardEvent) {
     const items = event.clipboardData?.items;
-    let files: File[] = [];
+    let files: File[];
     if (typeof items === "undefined" || items.length === 0) {
       try {
         files = await getFromClipboardFallback();

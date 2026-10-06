@@ -2,13 +2,13 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { Show, createMemo, createSignal } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Server } from "stoat.js";
+import { Server } from "sonm.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { decodeTime } from "ulid";
 
-import { useClient } from "@revolt/client";
-import { Markdown } from "@revolt/markdown";
+import { useClient } from "@sonm/client";
+import { Markdown } from "@sonm/markdown";
 import {
   Avatar,
   Column,
@@ -19,7 +19,7 @@ import {
   Text,
   TextField,
   Time,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";
@@ -156,7 +156,7 @@ export function AddBotModal(props: DialogProps & Modals & { type: "add_bot" }) {
 
           <Column gap="sm" align>
             <Text class="label" size="small">
-              Bots are not verified by Stoat.
+              Bots are not verified by Sonm.
             </Text>
             <Text class="label" size="small">
               The bot will not be granted any permissions.

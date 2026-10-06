@@ -2,21 +2,14 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { For, Show, createEffect, on } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import type { API } from "stoat.js";
+import type { API } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import {
-  CircularProgress,
-  Column,
-  Form2,
-  MenuItem,
-  Row,
-  Text,
-} from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { CircularProgress, Column, Form2, MenuItem, Row, Text } from "@sonm/ui";
 
-import { useModals } from "@revolt/modal";
-import { cropProcess } from "@revolt/modal/modals/CropProcess";
+import { useModals } from "@sonm/modal";
+import { cropProcess } from "@sonm/modal/modals/CropProcess";
 import { ServerSettingsProps } from "../ServerSettings";
 
 /**

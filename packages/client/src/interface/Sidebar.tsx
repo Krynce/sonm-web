@@ -1,18 +1,18 @@
 import { Component, JSX, Match, Show, Switch, createMemo } from "solid-js";
 import { styled } from "styled-system/jsx";
 
-import { Channel, Server as ServerI } from "stoat.js";
+import { Channel, Server as ServerI } from "sonm.js";
 
 import {
   CategoryContextMenu,
   ChannelContextMenu,
   ServerSidebarContextMenu,
-} from "@revolt/app";
-import { useClient, useUser } from "@revolt/client";
-import { useModals } from "@revolt/modal";
-import { useLocation, useParams, useSmartParams } from "@revolt/routing";
-import { useState } from "@revolt/state";
-import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
+} from "@sonm/app";
+import { useClient, useUser } from "@sonm/client";
+import { useModals } from "@sonm/modal";
+import { useParams, useSmartParams } from "@sonm/routing";
+import { useState } from "@sonm/state";
+import { LAYOUT_SECTIONS } from "@sonm/state/stores/Layout";
 
 import { HomeSidebar, ServerList, ServerSidebar } from "./navigation";
 
@@ -45,7 +45,6 @@ export const Sidebar = (props: {
   const { openModal } = useModals();
 
   const params = useParams<{ server: string }>();
-  const location = useLocation();
 
   return (
     <MainBar class="main_bar">
@@ -70,10 +69,10 @@ export const Sidebar = (props: {
         menuGenerator={props.menuGenerator}
       />
       <Show
-        when={
-          state.layout.getSectionState(LAYOUT_SECTIONS.PRIMARY_SIDEBAR, true) &&
-          !location.pathname.startsWith("/discover")
-        }
+        when={state.layout.getSectionState(
+          LAYOUT_SECTIONS.PRIMARY_SIDEBAR,
+          true,
+        )}
       >
         <Switch fallback={<Home />}>
           <Match when={params.server}>

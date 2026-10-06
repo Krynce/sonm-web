@@ -1,6 +1,6 @@
-import type { WebsiteEmbed } from "stoat.js";
+import type { WebsiteEmbed } from "sonm.js";
 
-import { SizedContent } from "@revolt/ui/components/utils";
+import { SizedContent } from "@sonm/ui/components/utils";
 
 /**
  * Special Embed

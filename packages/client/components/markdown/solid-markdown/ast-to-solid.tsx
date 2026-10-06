@@ -45,11 +45,7 @@ type TransformLink = (
 ) => string;
 type TransformImage = (src: string, alt: string, title?: string) => string;
 type TransformLinkTargetType =
-  | "_self"
-  | "_blank"
-  | "_parent"
-  | "_top"
-  | (string & {});
+  "_self" | "_blank" | "_parent" | "_top" | (string & {});
 
 type TransformLinkTarget = (
   href: string,
@@ -136,11 +132,7 @@ export function childrenToSolid(
 
   while (++childIndex < node.children.length) {
     const child = node.children[childIndex] as
-      | Comment
-      | DocType
-      | Element
-      | Raw
-      | Text;
+      Comment | DocType | Element | Raw | Text;
 
     if (child.type === "element") {
       children.push(toSolid(context, child, childIndex, node));

@@ -1,13 +1,13 @@
 import { For, Show } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useUsers } from "@revolt/markdown/users";
-import { useVoice } from "@revolt/rtc";
-import { Avatar, Ripple, Text, typography } from "@revolt/ui/components/design";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { useUsers } from "@sonm/markdown/users";
+import { useVoice } from "@sonm/rtc";
+import { Avatar, Ripple, Text, typography } from "@sonm/ui/components/design";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { css } from "styled-system/css";
 
 /**

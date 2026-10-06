@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { CategoryButton, Checkbox, Column, Time, iconSize } from "@revolt/ui";
+import { CategoryButton, Checkbox, Column, Time, iconSize } from "@sonm/ui";
 
 import MdBrush from "@material-design-icons/svg/outlined/brush.svg?component-solid";
 import MdLanguage from "@material-design-icons/svg/outlined/language.svg?component-solid";

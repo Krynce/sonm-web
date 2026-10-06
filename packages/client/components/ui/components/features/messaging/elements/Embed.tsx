@@ -6,14 +6,14 @@ import {
   TextEmbed as TextEmbedClass,
   VideoEmbed,
   WebsiteEmbed,
-} from "stoat.js";
+} from "sonm.js";
 import { css } from "styled-system/css";
 
-import { isGifBox, isGif as isGifLib } from "@revolt/common/lib/gifs";
-import { useModals } from "@revolt/modal";
-import { SizedContent } from "@revolt/ui/components/utils";
+import { isGifBox, isGif as isGifLib } from "@sonm/common/lib/gifs";
+import { useModals } from "@sonm/modal";
+import { SizedContent } from "@sonm/ui/components/utils";
 
-import { MessageContextMenu } from "@revolt/app";
+import { MessageContextMenu } from "@sonm/app";
 import { TextEmbed } from "./TextEmbed";
 
 /**

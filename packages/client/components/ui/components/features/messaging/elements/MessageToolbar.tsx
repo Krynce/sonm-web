@@ -3,12 +3,12 @@ import { Show } from "solid-js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { MessageContextMenu, useMessage } from "@revolt/app";
-import { useUser } from "@revolt/client";
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
-import { Ripple } from "@revolt/ui/components/design";
-import { iconSize } from "@revolt/ui/components/utils";
+import { MessageContextMenu, useMessage } from "@sonm/app";
+import { useUser } from "@sonm/client";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
+import { Ripple } from "@sonm/ui/components/design";
+import { iconSize } from "@sonm/ui/components/utils";
 
 import MdDelete from "@material-design-icons/svg/outlined/delete.svg?component-solid";
 import MdEdit from "@material-design-icons/svg/outlined/edit.svg?component-solid";

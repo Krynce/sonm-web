@@ -5,7 +5,7 @@ import {
   Fonts,
   MONOSPACE_FONT_KEYS,
   MonospaceFonts,
-} from "@revolt/ui/themes/fonts";
+} from "@sonm/ui/themes/fonts";
 
 import { State } from "..";
 

@@ -10,10 +10,10 @@ import {
   TextSystemMessage,
   UserModeratedSystemMessage,
   UserSystemMessage,
-} from "stoat.js";
+} from "sonm.js";
 
-import { useNavigate, useSmartParams } from "@revolt/routing";
-import { useState } from "@revolt/state";
+import { useNavigate, useSmartParams } from "@sonm/routing";
+import { useState } from "@sonm/state";
 
 import { useClient, useNotifications, useSound } from ".";
 

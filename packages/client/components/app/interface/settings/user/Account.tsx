@@ -2,13 +2,13 @@ import { Match, Show, Switch, createMemo, createSignal } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { useClient, useClientLifecycle } from "@revolt/client";
+import { useClient, useClientLifecycle } from "@sonm/client";
 import {
   createMfaResource,
   createOwnProfileResource,
-} from "@revolt/client/resources";
-import { useModals } from "@revolt/modal";
-import { CategoryButton, Column, Row, iconSize, useSnackbar } from "@revolt/ui";
+} from "@sonm/client/resources";
+import { useModals } from "@sonm/modal";
+import { CategoryButton, Column, Row, iconSize, useSnackbar } from "@sonm/ui";
 
 import MdAlternateEmail from "@material-design-icons/svg/outlined/alternate_email.svg?component-solid";
 import MdBlock from "@material-design-icons/svg/outlined/block.svg?component-solid";

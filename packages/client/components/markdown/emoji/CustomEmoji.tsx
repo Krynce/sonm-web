@@ -1,6 +1,6 @@
 import { ComponentProps, splitProps } from "solid-js";
 
-import { useInstance } from "@revolt/instance";
+import { useInstance } from "@sonm/instance";
 import { EmojiBase } from ".";
 
 /**

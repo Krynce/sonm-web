@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
 
-import { Avatar, Column, Dialog, DialogProps, Text } from "@revolt/ui";
+import { Avatar, Column, Dialog, DialogProps, Text } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

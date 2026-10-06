@@ -2,8 +2,8 @@ import { Show } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { A, useNavigate } from "@revolt/routing";
-import { Button, Row, iconSize } from "@revolt/ui";
+import { A, useNavigate } from "@sonm/routing";
+import { Button, Row, iconSize } from "@sonm/ui";
 
 import MdArrowBack from "@material-design-icons/svg/filled/arrow_back.svg?component-solid";
 
@@ -13,7 +13,7 @@ import { MailProvider } from "./MailProvider";
 /**
  * Keep track of email within the same session
  */
-let email = "postmaster@revolt.wtf";
+let email = "";
 
 /**
  * Persist email information temporarily

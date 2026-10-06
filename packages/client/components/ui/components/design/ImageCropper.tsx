@@ -10,7 +10,7 @@ import {
 import { Trans } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { Form2 } from "@revolt/ui";
+import { Form2 } from "@sonm/ui";
 import { createFormControl } from "solid-forms";
 import { css } from "styled-system/css";
 import {

@@ -1,5 +1,5 @@
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { createFormControl, createFormGroup } from "solid-forms";
-import { BiRegularArchive, BiSolidKey, BiSolidKeyboard } from "solid-icons/bi";
 import {
   For,
   Match,
@@ -10,7 +10,7 @@ import {
 } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import type { API } from "stoat.js";
+import type { API } from "sonm.js";
 
 import {
   CategoryButton,
@@ -20,7 +20,7 @@ import {
   DialogProps,
   Form2,
   Text,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";
@@ -235,13 +235,17 @@ export function MFAFlowModal(
                     icon={
                       <Switch>
                         <Match when={method === "Password"}>
-                          <BiSolidKeyboard size={24} />
+                          <Symbol size={24} fill>
+                            keyboard
+                          </Symbol>
                         </Match>
                         <Match when={method === "Totp"}>
-                          <BiSolidKey size={24} />
+                          <Symbol size={24} fill>
+                            key
+                          </Symbol>
                         </Match>
                         <Match when={method === "Recovery"}>
-                          <BiRegularArchive size={24} />
+                          <Symbol size={24}>archive</Symbol>
                         </Match>
                       </Switch>
                     }

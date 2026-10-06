@@ -2,18 +2,17 @@ import { ErrorBoundary, For, Suspense } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { useClient } from "@revolt/client";
-import { createOwnBotsResource } from "@revolt/client/resources";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { createOwnBotsResource } from "@sonm/client/resources";
+import { useModals } from "@sonm/modal";
 import {
   Avatar,
   CategoryButton,
   CircularProgress,
   Column,
   iconSize,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
-import MdLibraryBooks from "@material-design-icons/svg/outlined/library_books.svg?component-solid";
 import MdSmartToy from "@material-design-icons/svg/outlined/smart_toy.svg?component-solid";
 
 import { useSettingsNavigation } from "../../Settings";
@@ -59,16 +58,6 @@ function CreateBot() {
         }
       >
         <Trans>Create Bot</Trans>
-      </CategoryButton>
-      <CategoryButton
-        action="external"
-        icon={<MdLibraryBooks {...iconSize(22)} />}
-        onClick={() => window.open("https://developers.stoat.chat", "_blank")}
-        description={
-          <Trans>Learn more about how to create bots on Stoat.</Trans>
-        }
-      >
-        <Trans>Developer Documentation</Trans>
       </CategoryButton>
     </CategoryButton.Group>
   );

@@ -1,7 +1,7 @@
 import { type JSX, createMemo } from "solid-js";
 
-import { useTime } from "@revolt/i18n";
-import { useState } from "@revolt/state";
+import { useTime } from "@sonm/i18n";
+import { useState } from "@sonm/state";
 
 interface Props {
   value: number | Date | string | JSX.Element;

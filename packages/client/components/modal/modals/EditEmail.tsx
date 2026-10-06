@@ -2,9 +2,9 @@ import { createFormControl, createFormGroup } from "solid-forms";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { Column, Dialog, DialogProps, Form2 } from "@revolt/ui";
+import { Column, Dialog, DialogProps, Form2 } from "@sonm/ui";
 
-import { MFATicket } from "stoat.js";
+import { MFATicket } from "sonm.js";
 import { useModals } from "..";
 import { Modals } from "../types";
 

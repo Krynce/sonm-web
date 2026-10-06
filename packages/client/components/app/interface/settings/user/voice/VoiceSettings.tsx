@@ -1,7 +1,7 @@
 import { Show } from "solid-js";
 
-import { useInstance } from "@revolt/instance";
-import { Column } from "@revolt/ui";
+import { useInstance } from "@sonm/instance";
+import { Column } from "@sonm/ui";
 
 import { ScreenShareOptions } from "./ScreenShareOptions";
 import { VoiceInputOptions } from "./VoiceInputOptions";

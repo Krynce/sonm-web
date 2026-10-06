@@ -1,6 +1,6 @@
 import { createContext, JSXElement, useContext } from "solid-js";
 
-import { Sounds, TypeSounds, useState } from "@revolt/state";
+import { Sounds, TypeSounds, useState } from "@sonm/state";
 import deafenSound from "../../public/assets/sounds/deafen.ogg";
 import messageSound from "../../public/assets/sounds/message_sound.ogg";
 import muteSound from "../../public/assets/sounds/mute.ogg";

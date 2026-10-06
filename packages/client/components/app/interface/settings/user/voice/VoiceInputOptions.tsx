@@ -3,17 +3,17 @@ import { useMediaDeviceSelect } from "solid-livekit-components";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { useInstance } from "@revolt/instance";
-import { stoatSinkName } from "@revolt/rtc";
-import { useState } from "@revolt/state";
+import { useInstance } from "@sonm/instance";
+import { virtualSinkName } from "@sonm/rtc";
+import { useState } from "@sonm/state";
 import {
   CategoryButton,
   CategorySelectOption,
   Column,
   Slider,
   Text,
-} from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 /**
  * Input options
@@ -74,7 +74,7 @@ function SelectInput(props: { kind: MediaDeviceKind }) {
     const devs = media()
       .devices()
       // Filter out the virtual sink
-      .filter((dev) => dev.label.split(":").pop() !== stoatSinkName);
+      .filter((dev) => dev.label.split(":").pop() !== virtualSinkName);
 
     //Ensure default is at top
     let d = devs.find((d) => d.deviceId === "default");

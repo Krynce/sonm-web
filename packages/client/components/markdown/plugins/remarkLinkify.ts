@@ -1,4 +1,4 @@
-import LinkifyIt from "linkify-it";
+import { LinkifyIt } from "linkify-it";
 import { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 

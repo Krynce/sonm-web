@@ -1,17 +1,17 @@
 import { Match, Show, Switch } from "solid-js";
 
-import { TextEmbed as TextEmbedClass, WebsiteEmbed } from "stoat.js";
+import { TextEmbed as TextEmbedClass, WebsiteEmbed } from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { Markdown } from "@revolt/markdown";
-import { RenderAnchor } from "@revolt/markdown/plugins/anchors";
-import { useModals } from "@revolt/modal";
-import { Text } from "@revolt/ui/components/design";
-import { Column } from "@revolt/ui/components/layout";
-import { OverflowingText, SizedContent } from "@revolt/ui/components/utils";
+import { Markdown } from "@sonm/markdown";
+import { RenderAnchor } from "@sonm/markdown/plugins/anchors";
+import { useModals } from "@sonm/modal";
+import { Text } from "@sonm/ui/components/design";
+import { Column } from "@sonm/ui/components/layout";
+import { OverflowingText, SizedContent } from "@sonm/ui/components/utils";
 
-import { MessageContextMenu } from "@revolt/app";
+import { MessageContextMenu } from "@sonm/app";
 import { Attachment } from "./Attachment";
 import { SpecialEmbed } from "./SpecialEmbed";
 

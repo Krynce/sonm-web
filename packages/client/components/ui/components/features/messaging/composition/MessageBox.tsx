@@ -1,11 +1,11 @@
-import { BiRegularBlock } from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { Accessor, JSX, Match, Show, Switch, onMount } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { Row } from "@revolt/ui";
-import { AutoCompleteSearchSpace } from "@revolt/ui/components/utils/autoComplete";
+import { Row } from "@sonm/ui";
+import { AutoCompleteSearchSpace } from "@sonm/ui/components/utils/autoComplete";
 
 import { TextEditor2 } from "../../texteditor/TextEditor2";
 
@@ -238,7 +238,7 @@ export function MessageBox(props: Props) {
           <Match when={props.timeoutActive || !props.sendingAllowed}>
             <InlineIcon>
               <Blocked>
-                <BiRegularBlock size={24} />
+                <Symbol size={24}>block</Symbol>
               </Blocked>
             </InlineIcon>
           </Match>

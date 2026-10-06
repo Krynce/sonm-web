@@ -4,7 +4,7 @@ import { Motion, Presence } from "solid-motionone";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { Breadcrumbs, IconButton, Text } from "@revolt/ui";
+import { Breadcrumbs, IconButton, Text } from "@sonm/ui";
 
 import MdClose from "@material-design-icons/svg/outlined/close.svg?component-solid";
 

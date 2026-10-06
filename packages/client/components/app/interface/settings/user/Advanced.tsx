@@ -1,11 +1,11 @@
 import { For } from "solid-js";
 
-import { useState } from "@revolt/state";
+import { useState } from "@sonm/state";
 import {
   AVAILABLE_EXPERIMENTS,
   EXPERIMENTS,
-} from "@revolt/state/stores/Experiments";
-import { CategoryButton, Checkbox, Column } from "@revolt/ui";
+} from "@sonm/state/stores/Experiments";
+import { CategoryButton, Checkbox, Column } from "@sonm/ui";
 
 /**
  * Advanced settings
@@ -34,17 +34,6 @@ export default function AdvancedSettings() {
           }
         >
           Show 'copy ID' in context menus
-        </Checkbox>
-        <Checkbox
-          checked={state.settings.getValue("advanced:admin_panel")}
-          onChange={(e) =>
-            state.settings.setValue(
-              "advanced:admin_panel",
-              e.currentTarget.checked,
-            )
-          }
-        >
-          Show admin panel shortcuts in context menus
         </Checkbox>
       </Column>
       <CategoryButton.Group>

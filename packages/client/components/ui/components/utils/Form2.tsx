@@ -27,7 +27,7 @@ import {
 import { TextEditor2 } from "../features/texteditor/TextEditor2";
 import { Column, Row } from "../layout";
 
-import { useError } from "@revolt/i18n";
+import { useError } from "@sonm/i18n";
 import { FileInput, humanFileSize } from "./files";
 
 /**

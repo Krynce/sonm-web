@@ -7,7 +7,7 @@ import {
   ServerMember,
   ServerRole,
   User,
-} from "stoat.js";
+} from "sonm.js";
 
 export interface AutoCompleteSearchSpace {
   users?: User[];

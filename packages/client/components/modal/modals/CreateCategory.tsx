@@ -3,7 +3,7 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { ulid } from "ulid";
 
-import { Dialog, DialogProps, Form2 } from "@revolt/ui";
+import { Dialog, DialogProps, Form2 } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

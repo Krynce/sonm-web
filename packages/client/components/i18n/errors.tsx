@@ -1,6 +1,6 @@
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { createMemo, Match, Switch } from "solid-js";
-import { API } from "stoat.js";
+import { API } from "sonm.js";
 
 const RE_BREAK = /\s*\n\s*/g;
 
@@ -33,7 +33,7 @@ export function useError() {
 
     // TODO: HTTP errors
 
-    // handle Revolt API errors
+    // handle API errors
     if (
       (error as { type?: never } | undefined)?.type &&
       typeof (error as { type: never }).type === "string"
@@ -181,11 +181,10 @@ export function useError() {
         case "UnknownMessage":
         case "UnknownServer":
         case "UnknownUser":
-        case "VosoUnavailable":
           return err.type + " " + err.location;
 
         default:
-          return t`Uncaught Stoat error: ${err.type}`;
+          return t`Unexpected server error: ${err.type}`;
       }
     }
 
@@ -239,14 +238,8 @@ export function TranslatedError(props: TranslatedErrorProps) {
         <Switch fallback={err(props.error)}>
           <Match when={(errorString() as API.Error).type === "BlockedByShield"}>
             <Trans>
-              This sign up is marked as spam. Please see{" "}
-              <a
-                href="https://support.stoat.chat/kb/safety/blocked-for-spam"
-                target="_blank"
-                rel="noreferrer"
-              >
-                this support article.
-              </a>
+              This sign up is marked as spam. Please contact the server
+              administrator.
             </Trans>
           </Match>
         </Switch>

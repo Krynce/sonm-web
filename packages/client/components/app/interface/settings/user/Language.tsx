@@ -1,10 +1,10 @@
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { Language, Languages, browserPreferredLanguage } from "@revolt/i18n";
-import type { LanguageEntry } from "@revolt/i18n/Languages";
-import { timeLocale } from "@revolt/i18n/dayjs";
-import { UnicodeEmoji } from "@revolt/markdown/emoji";
-import { useState } from "@revolt/state";
+import { Language, Languages, browserPreferredLanguage } from "@sonm/i18n";
+import type { LanguageEntry } from "@sonm/i18n/Languages";
+import { timeLocale } from "@sonm/i18n/dayjs";
+import { UnicodeEmoji } from "@sonm/markdown/emoji";
+import { useState } from "@sonm/state";
 import {
   CategoryButton,
   CategorySelectOption,
@@ -12,14 +12,13 @@ import {
   Row,
   Time,
   iconSize,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import MdErrorFill from "@material-design-icons/svg/filled/error.svg?component-solid";
 import MdVerifiedFill from "@material-design-icons/svg/filled/verified.svg?component-solid";
 import MdCalendarMonth from "@material-design-icons/svg/outlined/calendar_month.svg?component-solid";
 import MdLanguage from "@material-design-icons/svg/outlined/language.svg?component-solid";
 import MdSchedule from "@material-design-icons/svg/outlined/schedule.svg?component-solid";
-import MdTranslate from "@material-design-icons/svg/outlined/translate.svg?component-solid";
 
 /**
  * Language
@@ -35,9 +34,7 @@ export function LanguageSettings() {
         <PickDateFormat />
         <PickTimeFormat />
       </CategoryButton.Group>
-      <CategoryButton.Group>
-        <ContributeLanguageLink />
-      </CategoryButton.Group>
+      <CategoryButton.Group></CategoryButton.Group>
     </Column>
   );
 }
@@ -196,23 +193,3 @@ function PickTimeFormat() {
 //     </Switch>
 //   );
 // }
-
-/**
- * Language contribution link
- */
-function ContributeLanguageLink() {
-  return (
-    <a href="https://translate.stoat.chat/projects/revolt/" target="_blank">
-      <CategoryButton
-        action="external"
-        icon={<MdTranslate {...iconSize(22)} />}
-        ignoreClick
-        description={
-          <Trans>Help contribute to an existing or new language</Trans>
-        }
-      >
-        <Trans>Contribute a language</Trans>
-      </CategoryButton>
-    </a>
-  );
-}

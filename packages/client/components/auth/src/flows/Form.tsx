@@ -3,11 +3,11 @@ import { createSignal, For, JSX, Show } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
 
-import { Checkbox, Column, iconSize, Text, TextField } from "@revolt/ui";
+import { Checkbox, Column, iconSize, Text, TextField } from "@sonm/ui";
 import { styled } from "styled-system/jsx";
 
 import MdError from "@material-design-icons/svg/filled/error.svg?component-solid";
-import { TranslatedError } from "@revolt/i18n/errors";
+import { TranslatedError } from "@sonm/i18n/errors";
 
 import { useFlowBubble } from "./Flow";
 
@@ -28,12 +28,7 @@ const ErrorContainer = styled("span", {
  * Available field types
  */
 type Field =
-  | "email"
-  | "password"
-  | "new-password"
-  | "log-out"
-  | "username"
-  | "invite";
+  "email" | "password" | "new-password" | "log-out" | "username" | "invite";
 
 /**
  * Properties to apply to fields

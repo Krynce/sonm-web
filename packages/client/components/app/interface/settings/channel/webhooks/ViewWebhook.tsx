@@ -3,18 +3,12 @@ import { Show } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { useMutation } from "@tanstack/solid-query";
-import { API, ChannelWebhook } from "stoat.js";
+import { API, ChannelWebhook } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
-import {
-  CategoryButton,
-  CircularProgress,
-  Column,
-  Form2,
-  Row,
-} from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
+import { CategoryButton, CircularProgress, Column, Form2, Row } from "@sonm/ui";
 
 import MdContentCopy from "@material-design-icons/svg/outlined/content_copy.svg?component-solid";
 import MdDelete from "@material-design-icons/svg/outlined/delete.svg?component-solid";

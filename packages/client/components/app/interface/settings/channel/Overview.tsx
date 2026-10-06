@@ -2,12 +2,12 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { Match, Show, Switch } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import type { API } from "stoat.js";
+import type { API } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { useDurationFormat } from "@revolt/i18n/durations";
-import { useInstance } from "@revolt/instance";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { useDurationFormat } from "@sonm/i18n/durations";
+import { useInstance } from "@sonm/instance";
+import { useModals } from "@sonm/modal";
 import {
   Button,
   CircularProgress,
@@ -16,9 +16,9 @@ import {
   MenuItem,
   Row,
   Text,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
-import { cropProcess } from "@revolt/modal/modals/CropProcess";
+import { cropProcess } from "@sonm/modal/modals/CropProcess";
 import { ChannelSettingsProps } from "../ChannelSettings";
 
 /**

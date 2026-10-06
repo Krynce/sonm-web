@@ -4,7 +4,7 @@ import { QRCodeSVG } from "solid-qr-code";
 import { Trans, useLingui } from "@lingui/solid/macro";
 import { styled } from "styled-system/jsx";
 
-import { Column, Dialog, DialogProps, Form2, Text } from "@revolt/ui";
+import { Column, Dialog, DialogProps, Form2, Text } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";
@@ -50,7 +50,7 @@ export function MFAEnableTOTPModal(
    * Generate OTP URI
    */
   const uri = () =>
-    `otpauth://totp/Stoat:${props.identifier}?secret=${props.secret}&issuer=Stoat`;
+    `otpauth://totp/Sonm:${props.identifier}?secret=${props.secret}&issuer=Sonm`;
 
   async function onSubmit() {
     try {

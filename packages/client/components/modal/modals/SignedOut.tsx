@@ -1,6 +1,6 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { Dialog, DialogProps } from "@revolt/ui";
+import { Dialog, DialogProps } from "@sonm/ui";
 
 import { Modals } from "../types";
 
@@ -15,7 +15,7 @@ export function SignedOutModal(
     <Dialog
       show={props.show}
       onClose={props.onClose}
-      title={<Trans>You've been signed out of Stoat!</Trans>}
+      title={<Trans>You've been signed out of Sonm!</Trans>}
       actions={[{ text: <Trans>OK</Trans> }]}
     >
       <></>

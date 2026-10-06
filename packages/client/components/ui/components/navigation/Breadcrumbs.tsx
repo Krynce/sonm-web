@@ -1,4 +1,4 @@
-import { BiSolidChevronRight } from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { For, JSX, Match, Show, Switch } from "solid-js";
 
 import { styled } from "styled-system/jsx";
@@ -34,7 +34,7 @@ export function Breadcrumbs(props: Props) {
           return (
             <>
               <Show when={index() !== 0}>
-                <BiSolidChevronRight size="0.6em" />
+                <Symbol size={12}>chevron_right</Symbol>
               </Show>
               <Switch
                 fallback={

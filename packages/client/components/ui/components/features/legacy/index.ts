@@ -1,21 +1,5 @@
 import { Checkbox, List, Switch } from "../../design";
-import { type DialogProps, Dialog } from "../../design/Dialog";
 import { NavigationRail } from "../../navigation";
-
-/**
- * @deprecated Use the `Dialog` export instead!
- */
-export const Modal2 = Dialog;
-
-/**
- * @deprecated Use the `DialogScrim` export instead!
- */
-export const ModalScrim = Dialog.Scrim;
-
-/**
- * @deprecated Use the `DialogProps` export instead!
- */
-export type Modal2Props = DialogProps;
 
 /**
  * @deprecated Use the `List.Item` export instead!
@@ -43,10 +27,6 @@ export const OverrideSwitch = Switch.Override;
 export const Checkbox2 = Checkbox;
 
 export * from "./ComboBox";
-export * from "./Form";
 export * from "./Input";
-export * from "./InputElement";
-export * from "./LegacyCheckbox";
-export * from "./Radio";
 export * from "./SegmentedButton";
 export * from "./Username";

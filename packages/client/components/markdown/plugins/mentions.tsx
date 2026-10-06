@@ -6,10 +6,10 @@ import { styled } from "styled-system/jsx";
 import { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-import { UserContextMenu } from "@revolt/app";
-import { useClient } from "@revolt/client";
-import { useSmartParams } from "@revolt/routing";
-import { Avatar, ColouredText, iconSize } from "@revolt/ui";
+import { UserContextMenu } from "@sonm/app";
+import { useClient } from "@sonm/client";
+import { useSmartParams } from "@sonm/routing";
+import { Avatar, ColouredText, iconSize } from "@sonm/ui";
 
 import MdAt from "@material-design-icons/svg/filled/alternate_email.svg?component-solid";
 

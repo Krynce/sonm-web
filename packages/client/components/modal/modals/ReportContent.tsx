@@ -2,10 +2,10 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { For, Match, Switch } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { API, Message as MessageI, Server, User } from "stoat.js";
+import { API, Message as MessageI, Server, User } from "sonm.js";
 import { cva } from "styled-system/css";
 
-import { Message } from "@revolt/app";
+import { Message } from "@sonm/app";
 import {
   Avatar,
   Column,
@@ -14,7 +14,7 @@ import {
   Form2,
   Initials,
   MenuItem,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

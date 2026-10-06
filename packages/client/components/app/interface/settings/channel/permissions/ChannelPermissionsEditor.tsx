@@ -6,12 +6,12 @@ import {
   Channel,
   DEFAULT_PERMISSION_DIRECT_MESSAGE,
   Server,
-} from "stoat.js";
+} from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { Button, Checkbox2, Text, Switch as UiSwitch } from "@revolt/ui";
-import { typography } from "@revolt/ui/components/design/Text";
+import { Button, Checkbox2, Text, Switch as UiSwitch } from "@sonm/ui";
+import { typography } from "@sonm/ui/components/design/Text";
 
 type Props = (
   | { type: "server_default"; context: Server }

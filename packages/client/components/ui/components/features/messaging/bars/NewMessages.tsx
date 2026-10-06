@@ -5,9 +5,9 @@ import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { decodeTime } from "ulid";
 
-import { useTime } from "@revolt/i18n";
-import { Ripple } from "@revolt/ui/components/design";
-import { iconSize } from "@revolt/ui/components/utils";
+import { useTime } from "@sonm/i18n";
+import { Ripple } from "@sonm/ui/components/design";
+import { iconSize } from "@sonm/ui/components/utils";
 
 import MdClose from "@material-design-icons/svg/filled/close.svg?component-solid";
 

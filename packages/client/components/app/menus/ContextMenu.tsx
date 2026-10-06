@@ -1,4 +1,4 @@
-import { useFloating } from "solid-floating-ui";
+import { useFloating } from "@sonm/common/lib/floating";
 import {
   Component,
   ComponentProps,
@@ -13,7 +13,7 @@ import { Motion, Presence } from "solid-motionone";
 import { autoUpdate, offset, shift } from "@floating-ui/dom";
 import { styled } from "styled-system/jsx";
 
-import { iconSize, symbolSize, Text } from "@revolt/ui";
+import { iconSize, symbolSize, Text } from "@sonm/ui";
 
 import MdChevronRight from "@material-design-icons/svg/outlined/chevron_right.svg?component-solid";
 
@@ -92,7 +92,7 @@ export const ContextMenuItem = styled("a", {
         },
       },
     },
-    _titleCase: {
+    titleCase: {
       true: {},
       false: {},
     },
@@ -104,12 +104,12 @@ export const ContextMenuItem = styled("a", {
     },
   },
   defaultVariants: {
-    _titleCase: true,
+    titleCase: true,
     selected: false,
   },
   compoundVariants: [
     {
-      _titleCase: true,
+      titleCase: true,
       button: true,
       css: {
         textTransform: "capitalize",

@@ -3,18 +3,18 @@ import { Match, Suspense, Switch } from "solid-js";
 import { Trans } from "@lingui/solid/macro";
 import { useNavigate } from "@solidjs/router";
 import { useMutation, useQuery } from "@tanstack/solid-query";
-import { PublicChannelInvite, ServerPublicInvite } from "stoat.js";
+import { PublicChannelInvite, ServerPublicInvite } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
 import {
   Avatar,
   Button,
   CircularProgress,
   Text,
-} from "@revolt/ui/components/design";
-import { Column } from "@revolt/ui/components/layout";
+} from "@sonm/ui/components/design";
+import { Column } from "@sonm/ui/components/layout";
 
 interface Props {
   code: string;

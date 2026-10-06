@@ -2,12 +2,12 @@ import { Show, createResource } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 import { useNavigate } from "@solidjs/router";
-import { PublicBot, ServerMember, User } from "stoat.js";
+import { PublicBot, ServerMember, User } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { UserContextMenu } from "@revolt/app";
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
+import { UserContextMenu } from "@sonm/app";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
 
 import MdCancel from "@material-design-icons/svg/filled/cancel.svg?component-solid";
 import MdEdit from "@material-design-icons/svg/filled/edit.svg?component-solid";

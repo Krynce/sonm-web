@@ -2,10 +2,10 @@ import { For, Show, Suspense, createSignal } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 import { useQuery } from "@tanstack/solid-query";
-import { API, Channel } from "stoat.js";
+import { API, Channel } from "sonm.js";
 
-import { Message } from "@revolt/app";
-import { Button, CircularProgress, Row } from "@revolt/ui";
+import { Message } from "@sonm/app";
+import { Button, CircularProgress, Row } from "@sonm/ui";
 
 /**
  * Message search sidebar

@@ -3,10 +3,10 @@ import { For, Match, Show, Switch } from "solid-js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useInstance } from "@revolt/instance";
-import { ALLOWED_IMAGE_TYPES } from "@revolt/state";
-import { Ripple, typography } from "@revolt/ui/components/design";
-import { iconSize, OverflowingText, Symbol } from "@revolt/ui/components/utils";
+import { useInstance } from "@sonm/instance";
+import { ALLOWED_IMAGE_TYPES } from "@sonm/state";
+import { Ripple, typography } from "@sonm/ui/components/design";
+import { iconSize, OverflowingText, Symbol } from "@sonm/ui/components/utils";
 
 import MdAdd from "@material-design-icons/svg/outlined/add.svg?component-solid";
 import MdFile from "@material-design-icons/svg/outlined/description.svg?component-solid";

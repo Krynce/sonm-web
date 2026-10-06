@@ -1,10 +1,10 @@
 import { useLingui } from "@lingui/solid/macro";
 
-import { Client } from "stoat.js";
+import { Client } from "sonm.js";
 
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
-import { useSnackbar } from "@revolt/ui";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
+import { useSnackbar } from "@sonm/ui";
 
 import { IS_DEV, useClient } from ".";
 
@@ -21,7 +21,7 @@ export function useNotifications() {
     settings.resetNotificationsState("denied");
     if (showModal) {
       showError(
-        t`Failed to enable notifications. Stoat does not have notification permission.`,
+        t`Failed to enable notifications. Sonm does not have notification permission.`,
       );
     }
     await killServiceWorkerSubscription(getClient());

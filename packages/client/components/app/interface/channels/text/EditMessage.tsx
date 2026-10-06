@@ -1,17 +1,17 @@
 import { Match, Switch } from "solid-js";
 
 import { useMutation } from "@tanstack/solid-query";
-import { Message } from "stoat.js";
+import { Message } from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { KeybindAction, createKeybind } from "@revolt/keybinds";
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
-import { Text } from "@revolt/ui";
-import { TextEditor2 } from "@revolt/ui/components/features/texteditor/TextEditor2";
-import { useSearchSpace } from "@revolt/ui/components/utils/autoComplete";
+import { useClient } from "@sonm/client";
+import { KeybindAction, createKeybind } from "@sonm/keybinds";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
+import { Text } from "@sonm/ui";
+import { TextEditor2 } from "@sonm/ui/components/features/texteditor/TextEditor2";
+import { useSearchSpace } from "@sonm/ui/components/utils/autoComplete";
 
 export function EditMessage(props: { message: Message }) {
   const state = useState();

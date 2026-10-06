@@ -2,15 +2,15 @@ import { Match, Switch } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { useClientLifecycle } from "@revolt/client";
-import { State, TransitionType } from "@revolt/client/Controller";
-import { useModals } from "@revolt/modal";
-import { A, Navigate } from "@revolt/routing";
-import { Button, Column, Row, Text, iconSize } from "@revolt/ui";
+import { useClientLifecycle } from "@sonm/client";
+import { State, TransitionType } from "@sonm/client/Controller";
+import { useModals } from "@sonm/modal";
+import { A, Navigate } from "@sonm/routing";
+import { Button, Column, Row, Text, iconSize } from "@sonm/ui";
 
 import MdArrowBack from "@material-design-icons/svg/filled/arrow_back.svg?component-solid";
 
-import { useState } from "@revolt/state";
+import { useState } from "@sonm/state";
 import { FlowTitle } from "./Flow";
 import { Fields, Form } from "./Form";
 
@@ -119,7 +119,7 @@ export default function FlowLogin() {
             subtitle={
               <Trans>
                 We couldn't finish logging you in. Try again, and if it keeps
-                happening, check Stoat's status.
+                happening, contact your server administrator.
               </Trans>
             }
           >

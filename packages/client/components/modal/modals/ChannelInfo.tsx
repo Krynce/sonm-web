@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/solid/macro";
 
-import { Markdown } from "@revolt/markdown";
-import { Dialog, DialogProps } from "@revolt/ui";
+import { Markdown } from "@sonm/markdown";
+import { Dialog, DialogProps } from "@sonm/ui";
 
 import { css } from "styled-system/css";
 import { Modals } from "../types";

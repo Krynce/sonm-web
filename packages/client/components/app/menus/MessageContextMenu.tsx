@@ -1,13 +1,13 @@
 import { Accessor, For, Match, Show, Switch } from "solid-js";
 
-import { File, ImageEmbed, Message, VideoEmbed, WebsiteEmbed } from "stoat.js";
+import { File, ImageEmbed, Message, VideoEmbed, WebsiteEmbed } from "sonm.js";
 
-import { useClient, useUser } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import { CustomEmoji, UnicodeEmoji } from "@revolt/markdown/emoji";
-import { useModals } from "@revolt/modal";
-import { useState } from "@revolt/state";
-import { MediaPickerProps } from "@revolt/ui/components/features/messaging/composition/picker/CompositionMediaPicker";
+import { useClient, useUser } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { CustomEmoji, UnicodeEmoji } from "@sonm/markdown/emoji";
+import { useModals } from "@sonm/modal";
+import { useState } from "@sonm/state";
+import { MediaPickerProps } from "@sonm/ui/components/features/messaging/composition/picker/CompositionMediaPicker";
 
 import MdBadge from "@material-design-icons/svg/outlined/badge.svg?component-solid";
 import MdContentCopy from "@material-design-icons/svg/outlined/content_copy.svg?component-solid";
@@ -23,11 +23,10 @@ import MdPin from "@material-design-icons/svg/outlined/pin_invoke.svg?component-
 import MdReply from "@material-design-icons/svg/outlined/reply.svg?component-solid";
 import MdReport from "@material-design-icons/svg/outlined/report.svg?component-solid";
 import MdShare from "@material-design-icons/svg/outlined/share.svg?component-solid";
-import MdShield from "@material-design-icons/svg/outlined/shield.svg?component-solid";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import MdSentimentContent from "@material-symbols/svg-400/outlined/sentiment_content.svg?component-solid";
-import { useSnackbar } from "@revolt/ui";
+import MdSentimentContent from "@material-design-icons/svg/outlined/sentiment_satisfied.svg?component-solid";
+import { useSnackbar } from "@sonm/ui";
 import {
   ContextMenu,
   ContextMenuButton,
@@ -114,16 +113,6 @@ export function MessageContextMenu(props: {
         message: props.message!,
       });
     }
-  }
-
-  /**
-   * Open message in Stoat Admin Panel
-   */
-  function openAdminPanel() {
-    window.open(
-      `https://admin.stoatinternal.com/panel/inspect/message/${props.message!.id}`,
-      "_blank",
-    );
   }
 
   /**
@@ -404,11 +393,6 @@ export function MessageContextMenu(props: {
           </ContextMenuButton>
         </Show>
         <ContextMenuDivider />
-        <Show when={state.settings.getValue("advanced:admin_panel")}>
-          <ContextMenuButton icon={MdShield} onClick={openAdminPanel}>
-            <Trans>Admin Panel</Trans>
-          </ContextMenuButton>
-        </Show>
         <ContextMenuButton icon={MdShare} onClick={copyMessageLink}>
           <Trans>Copy message link</Trans>
         </ContextMenuButton>

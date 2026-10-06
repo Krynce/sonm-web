@@ -1,7 +1,7 @@
 import { Component, Match, Switch, createMemo } from "solid-js";
 
-import { useClient } from "@revolt/client";
-import { Navigate, useParams } from "@revolt/routing";
+import { useClient } from "@sonm/client";
+import { Navigate, useParams } from "@sonm/routing";
 
 /**
  * Server home component
@@ -9,7 +9,7 @@ import { Navigate, useParams } from "@revolt/routing";
 export const ServerHome: Component = () => {
   const params = useParams();
   const client = useClient();
-  const server = createMemo(() => client()!.servers.get(params.server)!);
+  const server = createMemo(() => client()!.servers.get(params.server!)!);
 
   return (
     // TODO: port the nice fallback

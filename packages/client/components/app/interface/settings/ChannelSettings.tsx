@@ -1,11 +1,11 @@
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { TextWithEmoji } from "@revolt/markdown";
-import { useModals } from "@revolt/modal";
-import { ColouredText } from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { useClient } from "@sonm/client";
+import { TextWithEmoji } from "@sonm/markdown";
+import { useModals } from "@sonm/modal";
+import { ColouredText } from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { SettingsConfiguration } from ".";
 import ChannelOverview from "./channel/Overview";

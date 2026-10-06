@@ -1,0 +1,69 @@
+{
+  "name": "solid-livekit-components",
+  "version": "2.9.15-3",
+  "description": "Solid components for building applications with LiveKit",
+  "license": "MIT",
+  "author": "insertish",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insertish/solid-livekit-components.git"
+  },
+  "homepage": "https://github.com/insertish/solid-livekit-components#readme",
+  "bugs": {
+    "url": "https://github.com/insertish/solid-livekit-components/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "browser": {},
+  "exports": {
+    "solid": {
+      "development": "./dist/dev.jsx",
+      "import": "./dist/index.jsx"
+    },
+    "development": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/dev.js"
+      }
+    },
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "typesVersions": {},
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.6.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "esbuild-plugin-solid": "^0.6.0",
+    "solid-js": "1.9.15",
+    "tsup": "^8.5.1",
+    "tsup-preset-solid": "^2.2.0",
+    "typescript": "^6.0.3"
+  },
+  "keywords": [
+    "solid"
+  ],
+  "dependencies": {
+    "@livekit/components-core": "^0.12.15",
+    "@solid-primitives/intersection-observer": "^2.2.5",
+    "@solid-primitives/keyed": "^1.5.3",
+    "@solid-primitives/scheduled": "^1.5.3",
+    "livekit-client": "^2.22.3",
+    "rxjs": "^7.8.2"
+  }
+}

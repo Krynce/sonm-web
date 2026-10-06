@@ -1,7 +1,7 @@
 import {
   UNICODE_EMOJI_PACKS,
   UnicodeEmojiPacks,
-} from "@revolt/markdown/emoji/UnicodeEmoji";
+} from "@sonm/markdown/emoji/UnicodeEmoji";
 import { batch } from "solid-js";
 
 import { State } from "..";
@@ -12,10 +12,7 @@ import { AbstractStore } from ".";
  * Possible notification permission states
  */
 export type NotificationPermissionState =
-  | "default"
-  | "denied"
-  | "allowed"
-  | "unsupported";
+  "default" | "denied" | "allowed" | "unsupported";
 
 /**
  * Possible notification permission states
@@ -66,7 +63,7 @@ interface SettingsDefinition {
   "appearance:compact_mode": boolean;
 
   /**
-   * Indicate new users to Stoat
+   * Indicate new users
    * TODO: implement
    */
   // "appearance:show_account_age": boolean;
@@ -79,7 +76,6 @@ interface SettingsDefinition {
   /**
    * Whether to include admin panel links in context menus
    */
-  "advanced:admin_panel": boolean;
 }
 
 /**
@@ -107,7 +103,6 @@ const EXPECTED_TYPES: { [K in keyof SettingsDefinition]: ValueType<K> } = {
   "appearance:show_send_button": "boolean",
   "appearance:compact_mode": "boolean",
   "advanced:copy_id": "boolean",
-  "advanced:admin_panel": "boolean",
 };
 
 /**
@@ -150,7 +145,6 @@ export class Settings extends AbstractStore<"settings", TypeSettings> {
       "appearance:show_send_button": true,
       "appearance:compact_mode": false,
       "advanced:copy_id": false,
-      "advanced:admin_panel": false,
     };
   }
 

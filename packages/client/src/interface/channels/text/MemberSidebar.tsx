@@ -2,14 +2,14 @@ import { createMemo, Match, Show, Switch } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
 import { VirtualContainer } from "@minht11/solid-virtual-container";
-import { Channel, ServerMember, User } from "stoat.js";
+import { Channel, ServerMember, User } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { floatingUserMenus } from "@revolt/app/menus/UserContextMenu";
-import { useClient } from "@revolt/client";
-import { createIsTimedOut } from "@revolt/common/lib/createIsTimedOut";
-import { TextWithEmoji } from "@revolt/markdown";
-import { userInformation } from "@revolt/markdown/users";
+import { floatingUserMenus } from "@sonm/app/menus/UserContextMenu";
+import { useClient } from "@sonm/client";
+import { createIsTimedOut } from "@sonm/common/lib/createIsTimedOut";
+import { TextWithEmoji } from "@sonm/markdown";
+import { userInformation } from "@sonm/markdown/users";
 import {
   Avatar,
   Deferred,
@@ -21,7 +21,7 @@ import {
   typography,
   Username,
   UserStatus,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 interface Props {
   /**
@@ -417,7 +417,7 @@ function Member(props: {
               placement="top-start"
               aria={status()!}
             >
-              <OverflowingText class={typography({ class: "_status" })}>
+              <OverflowingText class={typography({ class: "status" })}>
                 <TextWithEmoji content={status()!} />
               </OverflowingText>
             </Tooltip>

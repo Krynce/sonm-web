@@ -1,5 +1,5 @@
-import { useInstance } from "@revolt/instance";
-import { RE_CHANNELS } from "stoat.js";
+import { useInstance } from "@sonm/instance";
+import { RE_CHANNELS } from "sonm.js";
 import { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 

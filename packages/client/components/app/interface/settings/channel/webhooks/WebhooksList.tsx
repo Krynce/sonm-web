@@ -1,11 +1,11 @@
-import { BiSolidCloud } from "solid-icons/bi";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import { For, Match, Show, Switch, createMemo, onMount } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
-import { Avatar, CategoryButton, CircularProgress, Column } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
+import { Avatar, CategoryButton, CircularProgress, Column } from "@sonm/ui";
 
 import { ChannelSettingsProps } from "../../ChannelSettings";
 import { useSettingsNavigation } from "../../Settings";
@@ -34,7 +34,11 @@ export function WebhooksList(props: ChannelSettingsProps) {
     <Column gap="lg">
       <CategoryButton
         action="chevron"
-        icon={<BiSolidCloud size={24} />}
+        icon={
+          <Symbol size={24} fill>
+            cloud
+          </Symbol>
+        }
         onClick={() =>
           openModal({
             type: "create_webhook",

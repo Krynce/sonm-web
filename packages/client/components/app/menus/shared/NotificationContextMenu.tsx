@@ -2,20 +2,20 @@ import { For, Match, Show, Switch } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 import dayjs from "dayjs";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 
-import { useState } from "@revolt/state";
-import { Column, Text, Time } from "@revolt/ui";
+import { useState } from "@sonm/state";
+import { Column, Text, Time } from "@sonm/ui";
 
 import MdAlternateEmail from "@material-design-icons/svg/outlined/alternate_email.svg?component-solid";
 import MdNotificationsActive from "@material-design-icons/svg/outlined/notifications_active.svg?component-solid";
 import MdNotificationsOff from "@material-design-icons/svg/outlined/notifications_off.svg?component-solid";
 
-import MdDoNotDisturbOff from "@material-symbols/svg-400/outlined/do_not_disturb_off.svg?component-solid";
-import MdDoNotDisturbOn from "@material-symbols/svg-400/outlined/do_not_disturb_on.svg?component-solid";
-import MdNotificationSettings from "@material-symbols/svg-400/outlined/notification_settings.svg?component-solid";
-import MdRadioButtonChecked from "@material-symbols/svg-400/outlined/radio_button_checked-fill.svg?component-solid";
-import MdRadioButtonUnchecked from "@material-symbols/svg-400/outlined/radio_button_unchecked.svg?component-solid";
+import MdRadioButtonChecked from "@material-design-icons/svg/filled/radio_button_checked.svg?component-solid";
+import MdDoNotDisturbOff from "@material-design-icons/svg/outlined/do_not_disturb_off.svg?component-solid";
+import MdDoNotDisturbOn from "@material-design-icons/svg/outlined/do_not_disturb_on.svg?component-solid";
+import MdNotificationSettings from "@material-design-icons/svg/outlined/edit_notifications.svg?component-solid";
+import MdRadioButtonUnchecked from "@material-design-icons/svg/outlined/radio_button_unchecked.svg?component-solid";
 
 import { ContextMenuButton, ContextMenuSubMenu } from "../ContextMenu";
 
@@ -32,7 +32,7 @@ export function NotificationContextMenu(props: { channel: Channel }) {
               state.notifications.setChannelMute(props.channel, undefined)
             }
             symbol={MdDoNotDisturbOff}
-            _titleCase={false}
+            titleCase={false}
           >
             <Column gap="none">
               <Trans>Unmute Channel</Trans>
@@ -81,7 +81,7 @@ export function NotificationContextMenu(props: { channel: Channel }) {
                       : undefined,
                   })
                 }
-                _titleCase={false}
+                titleCase={false}
               >
                 {i18n}
               </ContextMenuButton>

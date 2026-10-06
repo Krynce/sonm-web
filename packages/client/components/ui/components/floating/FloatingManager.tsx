@@ -1,5 +1,5 @@
 /* eslint-disable solid/reactivity */
-import { useFloating } from "solid-floating-ui";
+import { useFloating } from "@sonm/common/lib/floating";
 import {
   For,
   Match,
@@ -14,7 +14,7 @@ import { Motion, Presence } from "solid-motionone";
 
 import { autoUpdate, flip, offset, shift } from "@floating-ui/dom";
 
-import { Keybind, KeybindAction } from "@revolt/keybinds";
+import { Keybind, KeybindAction } from "@sonm/keybinds";
 
 import { FloatingElement, floatingElements } from "../../directives";
 

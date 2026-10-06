@@ -1,8 +1,10 @@
 import { createFormControl, createFormGroup } from "solid-forms";
+import { Show } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { Column, Dialog, DialogProps, Form2, Text } from "@revolt/ui";
+import { useInstance } from "@sonm/instance";
+import { Column, Dialog, DialogProps, Form2, Text } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";
@@ -14,6 +16,7 @@ export function CreateBotModal(
   props: DialogProps & Modals & { type: "create_bot" },
 ) {
   const { t } = useLingui();
+  const guidelines = useInstance().config.features.legal_links.guidelines;
   const { showError } = useModals();
 
   const group = createFormGroup({
@@ -55,15 +58,17 @@ export function CreateBotModal(
     >
       <form onSubmit={submit}>
         <Column>
-          <Text>
-            <Trans>
-              By creating this bot, you agree to the{" "}
-              <a href="https://stoat.chat/aup" target="_blank" rel="noreferrer">
-                <Trans>Acceptable Use Policy</Trans>
-              </a>
-              .
-            </Trans>
-          </Text>
+          <Show when={guidelines}>
+            <Text>
+              <Trans>
+                By creating this bot, you agree to the{" "}
+                <a href={guidelines} target="_blank" rel="noreferrer">
+                  <Trans>Acceptable Use Policy</Trans>
+                </a>
+                .
+              </Trans>
+            </Text>
+          </Show>
           <Form2.TextField
             minlength={2}
             maxlength={32}

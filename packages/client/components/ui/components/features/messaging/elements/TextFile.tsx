@@ -1,12 +1,12 @@
 import { Match, Switch, createSignal, onMount } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { File } from "stoat.js";
+import { File } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { Button, CircularProgress } from "@revolt/ui/components/design";
-import { Row } from "@revolt/ui/components/layout";
-import { humanFileSize } from "@revolt/ui/components/utils";
+import { Button, CircularProgress } from "@sonm/ui/components/design";
+import { Row } from "@sonm/ui/components/layout";
+import { humanFileSize } from "@sonm/ui/components/utils";
 
 interface Props {
   /**

@@ -4,13 +4,13 @@ import { Trans, useLingui } from "@lingui/solid/macro";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useUser } from "@revolt/client";
+import { useUser } from "@sonm/client";
 import {
   UNICODE_EMOJI_PACKS,
   UnicodeEmoji,
   UnicodeEmojiPacks,
-} from "@revolt/markdown/emoji/UnicodeEmoji";
-import { useState } from "@revolt/state";
+} from "@sonm/markdown/emoji/UnicodeEmoji";
+import { useState } from "@sonm/state";
 import {
   Avatar,
   Button,
@@ -23,7 +23,7 @@ import {
   Row,
   Slider,
   Text,
-} from "@revolt/ui";
+} from "@sonm/ui";
 import {
   FONT_KEYS,
   FONTS,
@@ -31,7 +31,7 @@ import {
   MONOSPACE_FONT_KEYS,
   MONOSPACE_FONTS,
   MonospaceFonts,
-} from "@revolt/ui/themes/fonts";
+} from "@sonm/ui/themes/fonts";
 
 import MDPalette from "@material-design-icons/svg/outlined/palette.svg?component-solid";
 
@@ -91,23 +91,6 @@ export function AppearanceMenu() {
             <Trans>System</Trans>
           </Button>
         </Row>
-
-        {/* <Row gap="xs justify="stretch">
-          <Button
-            group="connected-start"
-            groupActive={state.theme.preset === "stoat"}
-            onPress={() => state.theme.setPreset("stoat")}
-          >
-            <Trans>Stoat</Trans>
-          </Button>
-          <Button
-            group="connected-end"
-            groupActive={state.theme.preset === "you"}
-            onPress={() => state.theme.setPreset("you")}
-          >
-            <Trans>Material You</Trans>
-          </Button>
-        </Row> */}
 
         <Show when={state.theme.preset === "you"}>
           <Row align justify wrap>

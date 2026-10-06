@@ -2,8 +2,8 @@ import { Trans, useLingui } from "@lingui/solid/macro";
 import { Show } from "solid-js";
 import { styled } from "styled-system/jsx";
 
-import { useSound } from "@revolt/client";
-import { useState } from "@revolt/state";
+import { useSound } from "@sonm/client";
+import { useState } from "@sonm/state";
 import {
   CategoryButton,
   Checkbox,
@@ -11,7 +11,7 @@ import {
   IconButton,
   Text,
   iconSize,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import MdVolumeUp from "@material-design-icons/svg/outlined/volume_up.svg?component-solid";
 

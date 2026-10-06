@@ -1,10 +1,4 @@
-import {
-  BiLogosAndroid,
-  BiLogosApple,
-  BiLogosWindows,
-  BiRegularQuestionMark,
-} from "solid-icons/bi";
-import { FaBrandsLinux } from "solid-icons/fa";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 import {
   Accessor,
   For,
@@ -16,18 +10,18 @@ import {
 } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { Session } from "stoat.js";
+import { Session } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useModals } from "@revolt/modal";
+import { useClient } from "@sonm/client";
+import { useModals } from "@sonm/modal";
 import {
   CategoryButton,
   CircularProgress,
   Column,
   Time,
   iconSize,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import MdLogout from "@material-design-icons/svg/outlined/logout.svg?component-solid";
 
@@ -195,18 +189,18 @@ const Capitalise = styled("div", {
  */
 function SessionIcon(props: { session?: Session }) {
   return (
-    <Switch fallback={<BiRegularQuestionMark size={22} />}>
+    <Switch fallback={<Symbol size={22}>question_mark</Symbol>}>
       <Match when={/linux/i.test(props.session?.name ?? "")}>
-        <FaBrandsLinux size={22} />
+        <Symbol size={22}>terminal</Symbol>
       </Match>
       <Match when={/windows/i.test(props.session?.name ?? "")}>
-        <BiLogosWindows size={22} />
+        <Symbol size={22}>desktop_windows</Symbol>
       </Match>
       <Match when={/android/i.test(props.session?.name ?? "")}>
-        <BiLogosAndroid size={22} />
+        <Symbol size={22}>android</Symbol>
       </Match>
       <Match when={/mac.*os|i(Pad)?os/i.test(props.session?.name ?? "")}>
-        <BiLogosApple size={22} />
+        <Symbol size={22}>laptop_mac</Symbol>
       </Match>
     </Switch>
   );

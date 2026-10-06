@@ -2,11 +2,11 @@ import { createFormControl, createFormGroup } from "solid-forms";
 import { Show } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { API } from "stoat.js";
+import { API } from "sonm.js";
 
-import { useClient } from "@revolt/client";
-import { useInstance } from "@revolt/instance";
-import { Column, Dialog, DialogProps, Form2 } from "@revolt/ui";
+import { useClient } from "@sonm/client";
+import { useInstance } from "@sonm/instance";
+import { Column, Dialog, DialogProps, Form2 } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

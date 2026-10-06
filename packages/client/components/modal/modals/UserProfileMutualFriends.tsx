@@ -2,7 +2,7 @@ import { For } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
 
-import { Avatar, Dialog, DialogProps, List, OverflowingText } from "@revolt/ui";
+import { Avatar, Dialog, DialogProps, List, OverflowingText } from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

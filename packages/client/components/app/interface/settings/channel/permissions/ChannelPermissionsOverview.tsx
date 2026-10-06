@@ -1,11 +1,11 @@
 import { For, Show, createMemo } from "solid-js";
 
 import { Trans } from "@lingui/solid/macro";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { styled } from "styled-system/jsx";
 
-import { CategoryButton, Column, Text, typography } from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+import { CategoryButton, Column, Text, typography } from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { useSettingsNavigation } from "../../Settings";
 

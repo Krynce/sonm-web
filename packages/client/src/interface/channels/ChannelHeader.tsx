@@ -1,17 +1,17 @@
 import { Accessor, Match, Setter, Show, Switch } from "solid-js";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
-import { Channel } from "stoat.js";
+import { Channel } from "sonm.js";
 import { css } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 
-import { useClient } from "@revolt/client";
-import { useDevice } from "@revolt/common";
-import { TextWithEmoji } from "@revolt/markdown";
-import { useModals } from "@revolt/modal";
-import { useVoice } from "@revolt/rtc";
-import { useState } from "@revolt/state";
-import { LAYOUT_SECTIONS } from "@revolt/state/stores/Layout";
+import { useClient } from "@sonm/client";
+import { useDevice } from "@sonm/common";
+import { TextWithEmoji } from "@sonm/markdown";
+import { useModals } from "@sonm/modal";
+import { useVoice } from "@sonm/rtc";
+import { useState } from "@sonm/state";
+import { LAYOUT_SECTIONS } from "@sonm/state/stores/Layout";
 import {
   Button,
   IconButton,
@@ -20,8 +20,8 @@ import {
   Spacer,
   typography,
   UserStatus,
-} from "@revolt/ui";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import MdGroup from "@material-design-icons/svg/outlined/group.svg?component-solid";
 import MdPersonAdd from "@material-design-icons/svg/outlined/person_add.svg?component-solid";

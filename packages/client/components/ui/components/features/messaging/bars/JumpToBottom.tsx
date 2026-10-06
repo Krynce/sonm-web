@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/solid/macro";
 import { css } from "styled-system/css";
 
-import { iconSize } from "@revolt/ui";
+import { iconSize } from "@sonm/ui";
 
 import MdArrowForward from "@material-design-icons/svg/filled/arrow_forward.svg?component-solid";
 

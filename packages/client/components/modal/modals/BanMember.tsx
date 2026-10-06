@@ -2,7 +2,7 @@ import { createFormControl, createFormGroup } from "solid-forms";
 
 import { Trans, useLingui } from "@lingui/solid/macro";
 
-import { useDurationFormat } from "@revolt/i18n/durations";
+import { useDurationFormat } from "@sonm/i18n/durations";
 import {
   Avatar,
   Column,
@@ -11,7 +11,7 @@ import {
   Form2,
   MenuItem,
   Text,
-} from "@revolt/ui";
+} from "@sonm/ui";
 
 import { useModals } from "..";
 import { Modals } from "../types";

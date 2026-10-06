@@ -13,17 +13,17 @@ import {
 } from "solid-js";
 
 import { useLingui } from "@lingui/solid/macro";
-import { Message as MessageInterface } from "stoat.js";
+import { Message as MessageInterface } from "sonm.js";
 import { cva } from "styled-system/css";
 import { styled } from "styled-system/jsx";
 import { decodeTime } from "ulid";
 
-import { useClient } from "@revolt/client";
-import { isGif } from "@revolt/common/lib/gifs";
-import { useTime } from "@revolt/i18n";
-import { Markdown } from "@revolt/markdown";
-import { startsWithPackPUA } from "@revolt/markdown/emoji/UnicodeEmoji";
-import { useState } from "@revolt/state";
+import { useClient } from "@sonm/client";
+import { isGif } from "@sonm/common/lib/gifs";
+import { useTime } from "@sonm/i18n";
+import { Markdown } from "@sonm/markdown";
+import { startsWithPackPUA } from "@sonm/markdown/emoji/UnicodeEmoji";
+import { useState } from "@sonm/state";
 import {
   Attachment,
   Avatar,
@@ -36,9 +36,9 @@ import {
   SystemMessageIcon,
   Tooltip,
   Username,
-} from "@revolt/ui";
-import { MediaPickerProps } from "@revolt/ui/components/features/messaging/composition/picker/CompositionMediaPicker";
-import { Symbol } from "@revolt/ui/components/utils/Symbol";
+} from "@sonm/ui";
+import { MediaPickerProps } from "@sonm/ui/components/features/messaging/composition/picker/CompositionMediaPicker";
+import { Symbol } from "@sonm/ui/components/utils/Symbol";
 
 import { MessageContextMenu } from "../../../menus/MessageContextMenu";
 import {
@@ -46,7 +46,7 @@ import {
   floatingUserMenusFromMessage,
 } from "../../../menus/UserContextMenu";
 
-import { createIsTimedOut } from "@revolt/common/lib/createIsTimedOut";
+import { createIsTimedOut } from "@sonm/common/lib/createIsTimedOut";
 import { EditMessage } from "./EditMessage";
 
 /**
@@ -299,7 +299,7 @@ export function Message(props: Props) {
               }
             >
               <NewUser>
-                <Tooltip content={t`New to Stoat`} placement="top">
+                <Tooltip content={t`New to Sonm`} placement="top">
                   <Symbol size={16} fill>
                     spa
                   </Symbol>

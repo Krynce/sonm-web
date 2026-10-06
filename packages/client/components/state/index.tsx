@@ -15,7 +15,7 @@ import { createDateNow } from "@solid-primitives/date";
 import equal from "fast-deep-equal";
 import localforage from "localforage";
 
-import { SlideDrawer } from "@revolt/ui/components/navigation/SlideDrawer";
+import { SlideDrawer } from "@sonm/ui/components/navigation/SlideDrawer";
 
 import { AbstractStore, Store } from "./stores";
 import { Auth } from "./stores/Auth";
@@ -27,7 +27,6 @@ import { LinkSafety } from "./stores/LinkSafety";
 import { Locale } from "./stores/Locale";
 import { NotificationOptions } from "./stores/NotificationOptions";
 import { Ordering } from "./stores/Ordering";
-import { ReleaseNotes } from "./stores/ReleaseNotes";
 import { ServerFolders } from "./stores/ServerFolders";
 import { Settings } from "./stores/Settings";
 import { Sounds } from "./stores/Sounds";
@@ -88,7 +87,6 @@ export class State {
   notifications = new NotificationOptions(this);
   ordering = new Ordering(this);
   "server-folders" = new ServerFolders(this);
-  "release-notes" = new ReleaseNotes(this);
   settings = new Settings(this);
   sync = new Sync(this);
   theme = new Theme(this);
