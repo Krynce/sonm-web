@@ -16,6 +16,9 @@ nodeLinker: isolated
 overrides:
   "prettier": "^3.8.1"
   "solid-js": "1.9.14"
+  # ponytail: dom-expressions 0.40.10 (preset 1.9.15) drops static keys from
+  # style={{ ...a, width: "100%" }} — member list rendered 0px wide. Unpin once fixed upstream.
+  "babel-preset-solid": "1.9.6"
   # solid-dnd-directive pins an old version
   # newer versions support scrolling ancestors in DOM
   # future todo: drop or fork solid-dnd-directive
