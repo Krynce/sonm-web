@@ -41,7 +41,8 @@ for (const file of files) {
       if (value) {
         data = data.replaceAll(placeholder, value);
       } else {
-        data = data.replaceAll(`"${placeholder}"`, "void 0");
+        // the minifier may quote strings with ", ' or `
+        data = data.replace(new RegExp(`(["'\`])${placeholder}\\1`, "g"), "void 0");
       }
       modified = true;
     }
