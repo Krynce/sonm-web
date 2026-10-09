@@ -199,28 +199,16 @@ export function floating(element: HTMLElement, accessor: Accessor<Props>) {
       () => accessor().contextMenu,
       (contextMenu) => {
         if (contextMenu) {
-          if (
-            (accessor().contextMenuHandler ?? "contextmenu") ===
-              "contextmenu" &&
-            isIOSTouch
-          ) {
-            element.addEventListener("long-press", onContextMenu);
-          } else {
-            element.addEventListener(
-              accessor().contextMenuHandler ?? "contextmenu",
-              onContextMenu,
-            );
-          }
+          // resolve eagerly: calling accessor() from onCleanup re-evaluates
+          // props of a tree that is already being disposed, which forces stale
+          // memos to recompute mid-teardown and crashes cleanNode
+          const handler = accessor().contextMenuHandler ?? "contextmenu";
+          const event =
+            handler === "contextmenu" && isIOSTouch ? "long-press" : handler;
 
-          onCleanup(() => {
-            if (isIOSTouch) {
-              element.removeEventListener("long-press", onContextMenu);
-            }
-            element.removeEventListener(
-              accessor().contextMenuHandler ?? "contextmenu",
-              onContextMenu,
-            );
-          });
+          element.addEventListener(event, onContextMenu);
+
+          onCleanup(() => element.removeEventListener(event, onContextMenu));
         }
       },
     ),
