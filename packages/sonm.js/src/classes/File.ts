@@ -66,17 +66,6 @@ export class File {
   }
 
   /**
-   * Direct URL to the file
-   */
-  // get url(): string {
-  //   if (!this.filename) return this.previewUrl;
-  //
-  //   return `${this.#client.configuration?.features.files.url}/${this.tag}/${
-  //     this.id
-  //   }/${this.filename}`;
-  // }
-
-  /**
    * Preview URL for the file
    */
   get previewUrl(): string {
@@ -87,11 +76,15 @@ export class File {
 
   /**
    * Original download URL for the file
+   *
+   * Names the file directly instead of going through `/original`: that path answers with a
+   * 308, which browsers cache forever, and before sonm-backend v0.1.8 its `Location` dropped
+   * the `/files` prefix, so clients that saw it keep following the broken target.
    */
   get originalUrl(): string {
-    return `${this.#client.configuration?.features.files.url}/${
-      this.tag
-    }/${this.id}/original`;
+    return `${this.#client.configuration?.features.files.url}/${this.tag}/${
+      this.id
+    }/${this.filename ? encodeURIComponent(this.filename) : "original"}`;
   }
 
   /**
